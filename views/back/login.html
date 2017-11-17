@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+	<link rel="stylesheet" href="/back/css/login_reg.css">
+</head>
+<body>
+<div class="user_box">
+<form class="login-form" action="/user/login_do" method="get" >
+		<h3>登陆页面</h3>
+		<div class="form-group">
+			<input type="text" class="login-user" name="username" placeholder="请输入用户名" required>
+			<i class="iconfont icon-true"></i>
+			<p></p>
+		</div>
+		<div class="form-group">
+			<input type="password" class="login-pwd" name="pwd" placeholder="请输入密码" required>
+			<i class="iconfont icon-true"></i>
+			<p></p>
+		</div>
+		<input type="checkbox" id="rem_user"><label for="rem_user">记住我的登陆信息</label>
+		<a href="/user/register">返回注册页面</a>
+		<input type="submit" class="send disabled" value="登陆">
+
+</form>
+</div>
+</body>
+<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+<script>
+	var login_user,login_pwd;
+	$('.login-user').blur(function () {
+			user($(this),1);
+		});
+		$('.login-pwd').blur(function () {
+			user($(this),3);
+		});
+	/*obj为标签; lr :0为注册用户名，1为登录用户名，2为注册密码，3为登录密码*/
+		function user(obj,lr) {
+			var is_true;
+			var obj_val=obj.val();
+				var msg;
+				switch (lr){
+					case 1:msg='请输入由汉字、字母、数字组成的6-18长度的用户名';break;
+					case 3:msg='请输入6-18位的数字或字母';break;
+				}
+				if(obj_val.length<6||obj_val.length>18){
+					switch (lr){
+						case 1:login_user=false;break;
+						case 3:login_pwd=false;break;
+					}
+						obj.parent().find('p').show().text(msg);
+						obj.parent().find('i').hide();
+				}else {
+					switch (lr){
+						case 1:{login_user=isChinaOrNumbOrLett(obj_val);is_true=login_user; break;}
+						case 3:{login_pwd=isNumberOrLetter(obj_val); is_true=login_pwd;break;}
+					}
+					if(is_true){
+						obj.parent().find('i').show();
+						obj.parent().find('p').hide();
+					}
+					else {
+						obj.parent().find('p').show().text(msg);
+						obj.parent().find('i').hide();
+
+					}
+				}
+			check_log();
+		}
+	function check_log() {
+			if(login_user&&login_pwd){
+				console.log($('.login-form .send'));
+				$('.login-form .send').addClass('active').removeClass('disabled');
+				return true;
+			}else {
+				$('.login-form .send').removeClass('active').addClass('disabled');
+				return false;
+			}
+
+		}
+
+	function isChinaOrNumbOrLett( s ){//判断是否是汉字、字母、数字组成
+	    var regu = "^[0-9a-zA-Z\u4e00-\u9fa5]+$";
+	    var re = new RegExp(regu);
+	    if (re.test(s)) {
+	        return true;
+	    }else{
+	        return false;
+	    }
+	}
+
+	function isNumberOrLetter( s ){//判断是否是数字或字母
+	    var regu = "^[0-9a-zA-Z]+$";
+	    var re = new RegExp(regu);
+	    if (re.test(s)) {
+	        return true;
+	    }else{
+	        return false;
+	    }
+	}
+</script>

@@ -1,0 +1,78 @@
+<%-include('../public/head.html')%>
+<link rel="stylesheet" href="/back/project/css/hcj_add.css">
+<div class="addr clearfix">
+    <ul>
+        <li><a href="/back"><i class="iconfont icon-shouye"></i> </a> </li>
+        <li><a href="/back/project"><i title="作品" class="mar_rig iconfont icon-sample"></i></a> </li>
+        <li><a href="/back/project">h5+c3+js</a> </li>
+        <li><a href="/back/project">添加</a> </li>
+    </ul>
+</div>
+<div class="module_list clearfix">
+    <a href="/back/project/hcj">h5+c3+js</a>
+    <a href="/back/project/h5">html5</a>
+    <a href="/back/project/c3">css3</a>
+    <a href="/back/projectjs/">javascript</a>
+    <a href="/back/project/node">nodejs</a>
+</div>
+
+<form class="add_main" action="/back/project/hcj_add_do" method="post" enctype="multipart/form-data">
+    <h2>作品编辑</h2>
+    <h4>作品标题</h4>
+    <select class="title_op" name="project_type" required>
+        <option value="null">请选择</option>
+        <option value="1">原创</option>
+        <option value="0">转载</option>
+    </select>
+    <input type="hidden" name="tab" value="hcj">
+    <input class="title" placeholder="请输入作品标题" name="title" required>
+    <h4>上传图片</h4>
+    <input type="file" class="upimage" name="upimage">
+    <h4>上传代码</h4>
+   <input type="file" class="upcode" name="upcode" ><input class="codename" placeholder="请输入文件名" name="codename" >
+    <h4>作品内容</h4>
+    <textarea name="content" id='content'   rows="12" cols="80" style="width: 90%;height:400px"></textarea>
+    <input type="submit" value="提交" class="submit">
+
+</form>
+<%-include('../public/footer.html')%>
+<script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+    var ue = UE.getEditor('content');
+
+  /*  $(function() {
+        //初始化数据,读localstroage
+      var allData = {};
+      if (localStorage.getItem('ueditor_content')!=null && localStorage.getItem('ueditor_content')!="") {
+            allData =   JSON.parse(localStorage.getItem('ueditor_content'));
+        }
+
+      //延时加载数据 要等编辑器加载成功，反正我不延时的时候没有成功。
+      setTimeout(function () {
+            ue.setContent (allData)
+      }, 500);
+
+      //离开页面或者刷新页面触发方法
+        window.onbeforeunload = function() {
+            localStorage.setItem("ueditor_content", JSON.stringify(ue.getContent()));
+        }
+
+    })*/
+  var types=['text/html','text/js'];
+  $('.upcode').change(function () {
+      var type=$(this).get(0).files[0].type;
+
+      if($.inArray(type,types)!=-1){
+          if($(this).parent().find("span")){
+            $(this).parent().remove('span');
+         }
+
+      }else{
+          $(this).after("<span style='color:red;font-size: 12px;'>只能上传HTML、js格式的文件</span>");
+      }
+
+  })
+
+</script>

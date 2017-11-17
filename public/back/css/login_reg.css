@@ -1,0 +1,45 @@
+html{width: 100%; height:100%;}
+        body{
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/login_bg.png');
+            background-size: 100% 100%;
+        }
+        .user_box{
+            position: fixed;
+            top: 200px;
+            right: 100px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 5px;
+        }
+        .user_box form{  margin: 20px;}
+        .user_box h3{
+        	margin-bottom: 20px;
+        	text-align: center;
+        }
+        .form-group{height: 70px;}
+        .form-group input[type='text'],.form-group input[type='password']{
+        	height: 35px;
+        	width: 300px;
+        	border:1px solid #aaa;
+        	border-radius: 5px;
+        }
+        .form-group p{
+        	line-height: 24px;
+        	color: red;
+         	font-size: 12px;
+        	display: none;
+        }
+        .form-group i{ color:#00ccff;  display: none;}
+        .login-form label{font-size: 15px;}
+        .login-form a{font-size: 15px;color:#00ccff;cursor: pointer;}
+        .user_box form .send{
+        	float: right;
+        	padding: 5px 10px;
+        	margin-bottom: 10px;
+        	color:#fff;
+        	border-radius: 5px;
+        }
+        .user_box form .disabled{  background-color:#aaa;  border: 1px solid #aaa;  }
+        .user_box form .active{ background-color:#00ccff;  border: 1px solid #00ccff;  }

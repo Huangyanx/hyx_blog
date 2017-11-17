@@ -1,0 +1,91 @@
+.pre_content{
+    width: 80%;
+    float: left;
+}
+.back{
+    padding: 3px 10px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.pre_content .content{
+    margin-left: 10px;
+}
+.pre_content .content p{
+    text-indent: 2em;
+    line-height: 25px;
+    letter-spacing: 2px;
+}
+.pre_content h2, .pre_content h6{
+    text-align: center;
+}
+.pre_content h6 i{
+    margin: 0 5px;
+}
+.pre_content .show{
+    margin-top: 20px;
+    text-align: center;
+}
+.pre_content .show a{
+    font-size: 17px;
+    padding: 5px 15px;
+    background-color:#00ccff;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    color:#fff;
+    transition: 0.5s;
+}
+.pre_content .show a:hover{
+    color:red;
+}
+.pre_content .next{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.pre_content .next a{
+    margin-left: 20px;
+    font-size: 18px;
+    color:#00ccff;
+}
+.pre_content .next a:hover{
+    color:red;
+}
+
+.pre_hot{
+    width:20%;
+    float: left;
+
+}
+.pre_hot .hot{
+    width: 95%;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+.pre_hot .hot h3{
+    margin-left: 10px;
+}
+.pre_hot .hot li{
+    line-height: 38px;
+}
+.pre_hot .hot li a,.pre_hot .hot li span{
+    color:#222;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.pre_hot .hot li a:hover{
+    color: #00ccff;
+}
+.pre_hot .hot li span:hover{
+    color: #00ccff;
+    border: 1px solid #00ccff;
+}
+.pre_hot .hot li span{
+    border: 1px solid #aaa;
+    padding:4px 8px;
+    border-radius: 5px;
+    margin: 0 5px;
+}

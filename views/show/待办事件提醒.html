@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todu</title>
+    <link rel="stylesheet" type="text/css" href="/show_file/todo/jquery-datetimepicker/jquery.datetimepicker.css" >
+ 
+   
+<style>
+body {
+    background: #00334b;
+    color: #fff;
+}
+ul{
+    padding: 0px;
+    list-style: none;
+}
+input{
+    border: none;
+}
+
+.msg {
+	text-align: center;
+	background: #ffe264;
+	padding: 10px;
+	color: #333;
+    display: none;
+	/* [disabled]display: none; */
+}
+
+.add-task{
+    overflow: hidden;
+    width:82%;
+    margin: auto;
+}
+.add-task input[type=text] {
+    float: left;
+    width: 80%;
+    margin-right: 1%;
+    display: block;
+    background: #ddd;
+    border: none;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+    padding: 10px;
+    border-radius: 3px;
+}
+.add-task button{
+    float: left;
+    background: #46b1e4;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    width: 120px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.contanier{
+    max-width: 900px;
+    margin: auto;
+}
+.contanier > h1{
+    text-align: center;
+    margin: 80px 0 30px 0px;
+    font-size: 40px;
+    color: #fff;
+    font-weight: normal;
+}
+.contanier .complete{
+    float: left;
+    margin-top: 4px;
+}
+.contanier .fr{
+    float: right;
+}
+.contanier .fr .action {
+    color: #888;
+    font-size: 90%;
+}
+.contanier .task-list{
+    position: relative;
+}
+.contanier .task-item {
+    background: #fff;
+    color: #333;
+    margin-bottom: 2px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 3px;
+    width:80%;
+    margin: 3px auto;
+}
+.contanier .task-content {
+    margin-left: 10px;
+}
+
+.task-detail {
+	background: #fff;
+	overflow: auto;
+	color: #333;
+	width: 300px;
+	height: 322px;
+	padding: 10px;
+	bottom: 20%;
+	right: 50px;
+	border-radius: 3px 0 0 3px;
+	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .1);
+	position: absolute;
+	/*[disabled]*/
+    display: none;
+}
+.task-detail input.edit_title{
+    display:none;
+   /* border: 1px solid #000000;*/
+}
+.task-detail .close{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+.task-detail .close:hover{
+    color: red;
+}
+.task-detail .content {
+    font-weight: 900;
+    cursor: pointer;
+}
+.task-detail .input-item{
+    margin-bottom: 20px;
+}
+.task-detail .datetime{
+    height: 40px;
+}
+textarea {
+    min-height: 100px;
+    border:none;
+    resize: none;
+}
+textarea, input[type=text], input[type=date] {
+    width: 100%;
+    display: block;
+    background: #ddd;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+}
+.task-detail button{
+    float: left;
+    background: #46b1e4;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    width: 106px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.task-detail-mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(30, 30, 30, .6);
+    display: none;
+}
+.task-item.completed{
+    opacity: 0.4;
+}
+.task-item.completed:after {
+    content: " ";
+    height: 1px;
+    background: #aaa;
+    width: 96%;
+    position: relative;
+    top: -8px;
+    display: block;
+    float: right;
+}
+.alerter {
+    width: 0;
+    height: 0;
+}
+.contanier .delete_all_box{
+    background-color: #fff;
+    background-color: #fff;
+    width: 80%;
+    padding: 10px;
+    margin: auto;
+}
+.contanier .delete_all{
+    float: right;
+    background-color: #973634;
+    padding: 5px 10px;
+
+}
+.msg .confirmed{
+    cursor: pointer;
+}
+</style>
+<script type="text/javascript" src="/show_file/todo/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/show_file/todo/store.js/store.js"></script>
+<script src="/show_file/todo/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
+
+</head>
+<body>
+
+<div class="msg">
+    <span class="msg-content"></span>
+    <span class="anchor confirmed">知道了</span>
+</div>
+<video id="music">
+    <source src="/musics/胡夏-那些年.mp3">
+</video>
+<div class="contanier">
+    <h1>我的Todo</h1>
+    <form class="add-task">
+        <input type="text" placeholder="e.g. 输入你要代办的事情">
+        <button type="submit">提交</button>
+    </form>
+    <ul class="task-list">
+    </ul>
+    <div class="task-detail-mask"></div>
+    <div class="task-detail">
+        <form class="form up">
+            <h2 class="content">这是标题</h2><input class='edit_title'>
+            <div class="input-item">
+                <textarea></textarea>
+            </div>
+            <div class="remind input-item">
+                <label>提醒时间</label>
+                <input class="datetime datetimepicker" type="text" value="">
+            </div>
+            <div class="input-item"><button>更新</button></div>
+            <div class="close">X</div>
+        </form>
+    </div>
+    <div class="delete_all_box">
+        <button class="all">全选</button> <button class="no_all">全不选</button><button class="delete_all">删除</button>
+    </div>
+</div>
+
+<script type="text/javascript" >
+
+;(function () {
+    var music=document.getElementById('music');
+    var $add_task=$('.add-task');
+    var $ul=$('.task-list');
+    var task_list=store.get('tip')||[];
+    var  new_arr=store.get('arr')||[];
+    init();//初始化
+
+/*提交标题*/
+    $add_task.on('submit',function (eve) {
+            eve.preventDefault();
+            var obj={};
+            obj.cont=$add_task.find('input').val();
+            if (!obj.cont) return;
+            task_list.unshift(obj);
+            new_arr.unshift(null);
+            add_task()
+            $add_task.find('input').val(null);
+    })
+    /*列出所有的li的标题*/
+    function init() {
+        task_list=store.get('tip')||[];
+        new_arr=store.get('arr')||[];
+        var k = 0;
+       // console.log(k);
+        $ul.html(null);
+        for (var i in task_list){
+           if (task_list[i].complete) continue;
+            $ul.append(list_li(task_list[i],i));
+			k++;
+        }
+        for (var j in new_arr){
+            if ( new_arr[j]==null) continue;
+            $ul.append(list_li(new_arr[j],j));
+            $('.task-list .task-item').eq(k).addClass('completed');
+            k++;
+        }
+        delete_li();   /*删除选中的li*/
+        edit_detail();   /*显示编辑详情页面*/
+        check();
+        se_all();
+        clock_time()
+	
+    }
+    /*列出所有的li的标题的HTML（初始化时的HTML标签）*/
+    function list_li(task_list,i) {
+            var li=` <li class="task-item">
+                <input type="checkbox"`+(task_list.complete ? 'checked':null)+` class="complete">
+                <span class="task-content">${task_list.cont}</span>
+            <div class="fr">
+                <span class="action delete" data-index="${i}">删除</span>
+                <span class="action detail">详细</span>
+                </div>
+                </li>`;
+    return li;
+}
+    /*放入本地，并更新*//*object为要放数组进去的对象，arr为原json，complete_arr为完成json*/
+    function add_task() {
+        store.set('tip',task_list);
+        store.set('arr',new_arr);
+        init();
+    }
+    /*删除选中的li*/
+    function delete_li() {
+
+        $('.action.delete').on('click',function () {
+            var index=$(this).data('index');
+            var sure=confirm('确定删除吗？');
+            if (sure){
+                task_list.splice(index,1);
+                new_arr.splice(index,1);
+                add_task();
+            }
+        })
+    }
+    /*显示编辑详情页面*/
+    function edit_detail() {
+        var index;
+        $('.action.detail').on('click',function () {
+            index=$(this).siblings(0).data('index');
+            $('.task-detail-mask').show();
+            $('.task-detail').show();
+            $('.task-detail .content').html(task_list[index].cont);//赋值
+            $('.task-detail .edit_title').val(task_list[index].cont);//赋值
+
+           var content=task_list[index].content||null;
+                $('.input-item textarea').val(content);//赋值
+            var time=task_list[index].time||null;
+
+                $('.remind.input-item .datetime').val(time);//赋值
+            $('.task-detail .content').on('dblclick',function () {
+                /*双击显示标题*/
+               $(this).hide();
+                $('.task-detail .edit_title').show().focus().blur(function () {
+                    $(this).hide();
+                    $('.task-detail .content').show().text($(this).val());
+                });
+            });
+			//点击更新，提交
+           update(index);
+           /* edit_title();*/
+            $('.task-detail .close').on('click', close_detail);//关闭详情页面
+			date_time();/*时间编写  引入*/
+            
+
+        })
+
+
+    }
+    /*隐藏详情页面*/
+    function close_detail() {
+         $('.task-detail-mask').hide();
+         $('.task-detail').hide();
+        index=null;
+        $('.task-detail .content').text(null);/*清空*/
+        $('.input-item textarea').val(null);
+        $('.remind.input-item .datetime').val(null);
+      /*  $('.task-list').on('click',function () {
+            $('.task-detail-mask').hide();
+            $('.task-detail').hide();
+        })
+*/
+    }
+    /*双击编辑标题*/
+    function edit_title() {
+        $('.task-detail .content').ondblclick(function () {
+            $('.task-detail .content').hide();
+            $('.task-detail .edit_title').show();
+        });
+    }
+    function update(index) {
+        $('.form.up ').on('submit',function (eve) {
+            eve.preventDefault();
+            var newObj={};
+            newObj.cont= $('.task-detail .content').text();
+            newObj.content=$('.input-item textarea').val();
+            newObj.time=$('.remind.input-item .datetime').val();
+            task_list[index]=newObj;
+			new_arr[index]=null;
+			close_detail();
+            add_task();
+            
+        })
+    }
+    function se_all() {
+        $('.delete_all_box .all').on('click',function () {
+            $('.task-item .complete').prop('checked','checked');
+            for (var i in new_arr){
+                new_arr[i]=task_list[i];
+                task_list[i].complete=true;
+            }
+            add_task();
+            $('.delete_all_box .delete_all').on('click',function () {
+                new_arr=[];  /*删除所有*/
+                task_list=[];
+                add_task();
+            })
+        });
+        $('.delete_all_box .no_all').on('click',function () {
+            $(' .task-item .complete').prop('checked',false);
+            for (var i in new_arr){
+                new_arr[i]=null;
+                task_list[i].complete=false;
+            }
+            add_task();
+        })
+
+
+    }
+    /*选中*/
+    function check() {
+        $('.task-item .complete').on('click',function () {
+            var index=$(this).siblings(3).children(0).data('index');
+            if(task_list[index].complete){
+                var obj=task_list[index];
+                obj.complete=false;
+                new_arr[index]=null;
+                $('.task-list .task-item').eq(index).removeClass('completed');
+            }else {
+                var obj=task_list[index];
+                obj.complete=true;
+                new_arr[index]=task_list[index];
+                /* $('.task-list .task-item').eq(index).addClass('completed');*/
+            }
+           add_task();
+        })
+    }
+    /*提醒*/
+function date_time() {
+    $.datetimepicker.setLocale('ch');
+    $('.datetimepicker').datetimepicker({
+        i18n:{
+            de:{
+                months:[
+                    '1月','2月','3月','4月',
+                    '5月','6月','7月','8月',
+                    '9月','10月','11月','12月',
+                ],
+                dayOfWeek:[
+                    "So.", "Mo", "Di", "Mi",
+                    "Do", "Fr", "Sa.",
+                ]
+            }
+        },
+    });
+}
+/*提醒*/
+function clock_time() {
+    var timer=null;
+    var cur_time=new Date().getTime();
+   /* var is_close=[task_list.length];*/
+    setInterval(function () {
+        for (var i in task_list){
+            if (!task_list[i].time||task_list[i].complete) continue;
+            var end_time=(new Date(task_list[i].time)).getTime();
+            console.log(end_time);
+            if (end_time-cur_time<=1){
+                console.log('时间到了');
+                task_list[i].complete=true;
+               /* task_list[i].clock=true*/
+                new_arr[i]=task_list[i];
+                add_task();
+                /*msg显示*/
+                show_msg(task_list[i].cont);
+                /*播放音乐*/
+                play_music();
+                clearInterval(timer);
+            }
+
+        }
+    },1000);
+}
+function show_msg(content) {
+    $('.msg').show();
+    $('.msg .msg-content').text(content);
+    $('.anchor.confirmed').on('click',function () {
+        $('.msg').hide();
+        music.pause();
+    })
+    
+}
+function play_music() {
+    music.play();
+    setTimeout(function () {
+        music.pause();
+    },150000);
+}
+
+
+}())
+</script>
+
+</body>
+</html>

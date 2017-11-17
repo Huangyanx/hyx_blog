@@ -1,0 +1,31 @@
+.add_main{
+        margin:10px 10%;
+    }
+    .add_main h2{
+        text-align: center;
+    }
+    .add_main h4,.add_main .title,.add_main textarea,.add_main .submit{
+        margin-bottom: 8px;
+    }
+    .add_main .title {
+        width: 80%;
+    }
+    .add_main .title ,.add_main .codename{
+        line-height: 30px;
+        border: 1px #ccc solid;
+        border-radius: 3px;
+    }
+    .add_main .title_op{
+        height: 30px;
+    }
+    .add_main .submit,.add_main .upcode,.add_main .upimage{
+        padding: 5px 10px;
+        background-color: #00ccff;
+        border:1px solid #00ccff;
+        color:#fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .add_main{
+
+    }

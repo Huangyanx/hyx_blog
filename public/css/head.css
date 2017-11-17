@@ -1,0 +1,175 @@
+#header{position:fixed;width:100%;height:100px;line-height:100px;transition:.6s;background:rgba(23, 56, 154,.6);z-index: 10;}
+header a{color:#fff;}
+#header nav{width: 100%;owhite-space: nowrap;height:100px;}
+#header nav .ico_le{display: none;float: left;color:#fff;line-height:75px;font-size: 3em;}
+#header nav .ico_ri{display: none;float: right;color:#fff;line-height:75px;font-size: 3em;}
+
+#header nav .host{float: left;line-height: 60px;font-size: 28px;margin-right: 35px;}
+ul.modular{margin-top: 14px;line-height: 60px;}
+ul.modular li{float:left;}
+ul.modular li a{display:inline-block;padding:5px 20px 0 0;}
+ul.modular li:hover>a,.contact a:hover,.contact .user:hover{color: #ea9a9a;}
+ul.modular li.active>a{color:#0cf;}
+/*-二级菜单-*/
+.dropdown{
+	position:relative;
+}
+.dropdown:hover .secondMenu{
+	transform: scale(1);
+	display:block;
+} 
+.secondMenu{
+	position:absolute;
+	left:-20px;
+	top:40px;
+	min-width:130px;
+	margin:7px;
+	background-color:rgba(23, 56, 154,.6);
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	transition: .5s;
+	transform: scale(0);
+	transform-origin: top;	
+}
+.dropdown .secondMenu a{
+	display: block;
+	font-size:14px;
+	line-height:22px;
+	font-family:"微软雅黑";
+	text-transform: uppercase;
+	color:#fff;
+	padding:5px 10px;
+}
+ul.modular .dropdown .secondMenu a:hover{color: #ea9a9a!important;padding-left: 10px;transition: .5s;}
+#header nav .contact{
+	float:right;
+	overflow:hidden;
+    line-height: 60px;
+}
+#header nav .contact a {
+    font-size: 25px;
+    display: inline-block;
+    padding: 3px 0 0 15px;
+}
+header nav .contact{color:#fff;}
+header nav .contact .user{
+	cursor: pointer;
+	font-size: 16px;
+}
+header nav .contact a:nth-of-type(2){
+	font-size:27px;
+}
+#searchForm{
+	float:right;
+	display:none;
+}
+#searchForm input{
+	padding: 6px 5px;
+    width: 150px;
+    border-radius: 5px;
+	border:1px solid #fff;
+}
+/*----------登陆页面--------------*/
+.user_box{
+	position: fixed;
+	top:100px;
+	left: 300px;
+	background-color: #fff;
+	color:#000;
+	border-radius: 5px;
+	z-index: 99;
+}
+.user_box form{
+	margin: 20px 30px;
+}
+.user_box .close{
+	position: absolute;
+	top: -5px;
+	right: 4px;
+	font-size: 22px;
+	cursor: pointer;
+}
+.user_box .register-form{display:none;}
+.user_box .login-form{display:none;}
+.user_box h3{
+	margin-bottom: 20px;
+	text-align: center;
+}
+.form-group{
+	height: 70px;
+}
+.form-group input[type='text'],.form-group input[type='password']{
+	height: 35px;
+	width: 300px;
+	border:1px solid #aaa;
+	border-radius: 5px;
+}
+.form-group p{
+	line-height: 24px;
+	color: red;
+ 	font-size: 12px;
+	display: none;
+}
+.form-group i{
+	color:#00ccff;
+	display: none;
+}
+.user_box form .send{
+	float: right;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	color:#fff;
+	border-radius: 5px;
+}
+.user_box form .disabled{
+	background-color:#aaa;
+	border: 1px solid #aaa;
+}
+.user_box form .active{
+	background-color:#00ccff;
+	border: 1px solid #00ccff;
+}
+.shade{
+	position: absolute;
+	top: 0%;
+	left: 0;
+	width: 100%;
+	height:100%;
+	background-color: rgba(0,0,0,0.7);
+	z-index: 20;
+	cursor: pointer;
+	display: none;
+}
+footer{
+	width:100%;
+	height:100px;
+	clear: both;
+	background:rgba(0,0,0,.8);
+}
+@media screen and (max-width:640px){
+	#header{height:60px;line-height: 60px;}
+	#header nav .ico_le{display: block;}
+	#header nav .ico_ri{display: block;}
+	ul.modular {width:100%;top:0;padding-left:20px;display: none;overflow: hidden;background-color: #fff;}
+	ul.modular li{display: block;clear: both;}
+	ul.modular li a{color:#00ccff;}
+	#header nav .contact{width:100%;top:0;padding-left:20px;display: none;overflow: hidden;background-color: #fff;}
+	#header nav .contact a,#header nav .contact span{display: block;color:#00ccff;}
+	#searchForm input{border:1px solid #00ccff;}
+	.user_box{top:50px;left:0;}
+	.form-group input[type='text'],.form-group input[type='password']{width: 200px;}
+}
+@media screen and (min-width:640px) and (max-width:980px){
+	#header nav .ico_ri{display: block;}
+	#header nav .contact{display: none;}
+	#header nav .contact{width:100%;padding-left:20px;display: none;overflow: hidden;background-color: #fff}
+	#header nav .contact a,#header nav .contact span{display: block;color:#00ccff;}
+	#searchForm input{border:1px solid #00ccff;}
+	.user_box{top:50px;left:0;}
+	.form-group input[type='text'],.form-group input[type='password']{width: 200px;}
+}
+@media screen and (min-width:980px) and (max-width:1280px){
+	#header nav{width: 100%;}
+}
+@media screen and (min-width:1280px) and (max-width: 1920px){
+	#header nav{width: 80%;margin: 0 10%;}
+}

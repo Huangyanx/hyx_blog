@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	<script>
+		document.getElementsByTagName('html')[0].style.fontSize=document.documentElement.clientWidth/10;
+	</script>
+html,body{width:100%;}
+#box{position:absolute; top;0;left;width:200px;height:200px;margin:0 auto;}
+#box>div{position:absolute;width:100%;height:100%;left:0;top:0;}
+#box>div>div{position:absolute;width:100%;height:100%;transition:all 0.5 liner;transform:perspective(800px);}
+</style>
+</head>
+<body>
+<div id="box">
+</div>
+<script>
+	var arr=['/project/images/bz1.jpg','/project/images/bz2.jpg','/project/images/bz3.jpg','/project/images/bz4.jpg'];
+	var index=0;
+	function doom(c,r){
+	var parent=document.getElementById("box");
+		var x=c,y=r;
+			index++;
+			index==arr.length &&(index=0);
+			for(var i=0;i<x;i++){
+				for(var j=0;j<y;j++){
+					var oDiv=document.createElement("div");
+					oDiv.style.background='url('+arr[index]+')';
+					var oW=parent.clientWidth/x;
+					var oH=parent.clientHeight/y
+					oDiv.style.width=oW+'px';
+					oDiv.style.height=oH+'px';
+					oDiv.style.left=oW*j+'px';
+					oDiv.style.top=oH*i+'px';
+					oDiv.style.backgroundPositionX=-oW*j+'px';
+					oDiv.style.backgroundPositionY=-oH*i+'px';
+					oDiv.style.transition=(Math.random()*1+0.5)+'s';
+					parent.appendChild(oDiv);
+					setTimeout(scatter,2000);
+				}
+			}	
+			function scatter(){
+				var allDiv=document.querySelectorAll("#box div");
+				for(var i=0;i<allDiv.length;i++){
+					allDiv[i].style.transform=`perspective(800px) scale(`
+					+(Math.random()*1.3+1.2)+`) rotateX(`+(Math.random()*360-180)+`deg) rotateY(`
+					+(Math.random()*360-180)+`deg) translate3d(`
+					+Math.random()*100+`px,`+Math.random()*100+`px,`
+					+(Math.random()*100+100)+`px)`;
+					allDiv[i].style.opacity=0;
+				}
+			}		
+		setTimeout(function(){
+			parent.innerHTML='';
+			doom(15,15);
+		},2000)		
+	}
+	doom(15,15);
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+	<link rel="stylesheet" href="/back/css/login_reg.css">
+</head>
+<body>
+<div class="user_box">
+	<form class="register-form" action="/user/register_do" method="get">
+			<h3>注册页面</h3>
+			<div class="form-group">
+				<input type="text" class="reg-user" name="username" placeholder="请输入用户名" required>
+				<i class="iconfont icon-true"></i>
+				<p></p>
+			</div>
+			<div class="form-group">
+				<input type="password" class="reg-pwd" name="pwd" placeholder="请输入密码" required>
+				<i class="iconfont icon-true"></i>
+				<p></p>
+			</div>
+			<div class="form-group">
+				<input type="password" class="reg-sure-pwd"  placeholder="再次输入密码" required>
+				<i class="iconfont icon-true"></i>
+				<p></p>
+			</div>
+			<a href="/user/login" >返回登录页面</a>
+		<input type="submit"class="send disabled" value="注册">
+
+	</form>
+</div>
+</body>
+<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+<script>
+	/*---------登陆 注册  表单验证-----------------*/
+	var reg_user,reg_pwd,reg_sure_pwd;
+	$('.reg-user').blur(function () {//注册用户名验证
+		user($(this),0);
+		if(reg_user){
+			var that=$(this).get(0);
+			var username=$('.reg-user').val()
+			$.get('/has_user',{username},function (rtn) {
+				if(rtn.status){/*1为用户名已存在*/
+					$(that.nextElementSibling.nextElementSibling).show().text('用户名已存在，请注册其他用户名');
+					$(that.nextElementSibling).hide();
+					reg_user=false;
+				}else{
+					$(that.nextElementSibling.nextElementSibling).hide();
+					$(that.nextElementSibling).show();
+				}
+	        },'json');
+		}
+	});
+	$('.reg-pwd').blur(function () {//注册密码验证
+		user($(this),2);
+	});
+
+	$('.reg-sure-pwd').blur(function () {//确认密码验证
+		var pwd=$('.reg-pwd').val();
+		if(pwd!==$(this).val()){
+			msg='密码与确认密码不等';
+			$($(this).get(0).nextElementSibling.nextElementSibling).show().text(msg);
+			$($(this).get(0).nextElementSibling).hide();
+		}else{
+			reg_sure_pwd=1;
+			$($(this).get(0).nextElementSibling.nextElementSibling).hide();
+			$($(this).get(0).nextElementSibling).show();
+		}
+		check_reg();
+	});
+
+	/*obj为标签; lr :0为注册用户名，1为登录用户名，2为注册密码，3为登录密码*/
+	function user(obj,lr) {
+		var is_true;
+		var obj_val=obj.val();
+			var msg;
+			switch (lr){
+				case 0:msg='请输入由汉字、字母、数字组成的6-18长度的用户名';break;
+				case 2:msg='请输入6-18位的数字或字母';break;
+			}
+			if(obj_val.length<6||obj_val.length>18){
+				switch (lr){
+					case 0:reg_user=false;break;
+					case 2:reg_pwd=false;break;
+				}
+					obj.parent().find('p').show().text(msg);
+					obj.parent().find('i').hide();
+			}else {
+				switch (lr){
+					case 0:{reg_user=isChinaOrNumbOrLett(obj_val); is_true=reg_user; break;}
+					case 2:{reg_pwd=isNumberOrLetter(obj_val); is_true=reg_pwd;break;}
+				}
+				if(is_true){
+					obj.parent().find('i').show();
+					obj.parent().find('p').hide();
+				}
+				else {
+					obj.parent().find('p').show().text(msg);
+					obj.parent().find('i').hide();
+
+				}
+			}
+		check_reg();
+	}
+
+	//监听表单验证是否全通过
+	function check_reg() {
+		if(reg_user&&reg_pwd&&reg_sure_pwd){
+			$('.register-form .send').addClass('active').removeClass('disabled');
+			return true;
+		}
+		else{
+			$('.register-form .send').removeClass('active').addClass('disabled');
+			return false;
+		}
+	}
+
+	function isChinaOrNumbOrLett( s ){//判断是否是汉字、字母、数字组成
+	    var regu = "^[0-9a-zA-Z\u4e00-\u9fa5]+$";
+	    var re = new RegExp(regu);
+	    if (re.test(s)) {
+	        return true;
+	    }else{
+	        return false;
+	    }
+	}
+
+	function isNumberOrLetter( s ){//判断是否是数字或字母
+	    var regu = "^[0-9a-zA-Z]+$";
+	    var re = new RegExp(regu);
+	    if (re.test(s)) {
+	        return true;
+	    }else{
+	        return false;
+	    }
+	}
+
+</script>

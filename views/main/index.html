@@ -1,0 +1,94 @@
+﻿<%-include('public/head.html')%>
+<link rel="styleSheet" href="/index/css/index.css">
+<div id="banner">
+	<canvas class="canvas"></canvas>
+	<img id="ce" src="/index/images/ce6.png">
+	
+	<div id="river">
+		<img src="/index/images/ship.png">
+	</div>
+
+</div>
+<canvas id="bgCanvas" class="canvas"></canvas>
+<main>
+
+	<div class="plate">
+		<div class="head">
+			<h1>小案列</h1>
+			<h4><a href="/project">更多最新小案例</a> </h4>
+			<div class="module_list clearfix">
+				<a href="/project/hcj">h5+c3+js</a>
+				<a href="/project/h5">html5</a>
+				<a href="/project/c3">css3</a>
+				<a href="/projectjs/">javascript</a>
+				<a href="/project/node">nodejs</a>
+
+			</div>
+		</div>
+		<% for( var j in hcj_list){ %>
+		<div class="show">
+			<a href="/project/hcj_preview?id=<%-hcj_list[j].id %>&tab=hcj">
+			<img src="/show_img/<%-hcj_list[j].img %>">
+			</a>
+			<div class="cont">
+				<div class="cont_head">
+					<h3><a href="/project/hcj_preview?id=<%-hcj_list[j].id %>&tab=hcj"> <%-hcj_list[j].title %></a></h3>
+					<span><%-time[j] %></span>
+					<i class="iconfont icon-comment"><%-hcj_list[j].comment_num %></i>
+					<i class="iconfont icon-view"><%-hcj_list[j].count %></i>
+					<i class="iconfont icon-good"><%-hcj_list[j].good %></i>
+					<i class="iconfont icon-thumbs-down"><%-hcj_list[j].tread %></i>
+				</div>
+				<div class="content"><%-hcj_list[j].content %></div>
+
+			</div>
+		</div>
+		<% }%>
+	<div>
+		<div class="plate">
+			<div class="head">
+				<h1>发布文章</h1>
+				<h4><a href="/artcle">更多最新文章</a></h4>
+			</div>
+			<div class="show"></div>
+		</div>
+		<div class="plate">
+			<div class="head">
+				<h1>学习笔记</h1>
+				<h4><a href="/note">更多最新学习笔记</a></h4>
+			</div>
+			<div class="show"></div>
+		</div>
+		<div class="plate">
+			<div class="head">
+				<h1>推荐书籍</h1>
+				<h4><a href="/book">更多最新推荐书籍</a></h4>
+			</div>
+			<div class="show"></div>
+		</div>
+		<div class="plate">
+			<div class="head">
+				<h1>关于我</h1>
+				<h4><a href="/aboutMe">更多最新关于我</a></h4>
+			</div>
+			<div class="show"></div>
+		</div>
+
+</main>
+<div id="stairt">
+		<ul>
+			<li>顶部</li>
+			<li class="on">小案列</li>
+			<li>发布文章</li>
+			<li>学习笔记</li>
+			<li>推荐书籍</li>
+			<li>关于我</li>
+		</ul>
+</div>
+
+
+<%-include('public/footer.html')%>
+<script src="/js/common.js"></script>
+<script src="/js/bgLine.min.js"></script>
+<script src="/index/js/banner.min.js"></script>
+<script src="/index/js/index.js"></script>

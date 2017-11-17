@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #image {
+            width: 99px;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<img src="/show_img/img.jpg" alt="" id="image"/>
+</body>
+</html>
+<script>
+    var image = document.getElementById("image");
+    var speX=0,speY=0,timer=null;
+   window.onclick=function (event) {
+      var event=event||window.event;//事件
+        //缓冲运动  目标点减去初始位置除以一个数
+       var taX=event.clientX-image.offsetWidth/2;
+       var taY=event.clientY-image.offsetHeight/2;//目标点
+       clearInterval(timer);
+       timer= setInterval(function () {
+            if (image.offsetLeft==taX){clearInterval(timer)}
+            else {
+                speX=(taX-image.offsetLeft)/10;
+                speY=(taY-image.offsetTop)/10;
+                image.style.left=image.offsetLeft+speX+'px';
+                image.style.top=image.offsetTop+speY+'px';
+            }
+
+        },50);
+   }
+</script>

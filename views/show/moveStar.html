@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="CSS/iconfont.css">
+    <link rel="stylesheet prefetch" href="CSS/photoswipe.css">
+    <link rel="stylesheet prefetch" href="CSS/default-skin/default-skin.css">
+    <link href="CSS/fang.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+<div class="noti_shadow"></div>
+<div class="box">
+    <canvas id="mycanvas"></canvas>
+    <div class="skew_box">
+        <div id="snow_top"></div>
+        <div id="snow_sec"></div>
+        <div id="snow_med"></div>
+        <div id="snow_bottom"></div>
+    </div>
+    <div class="left_side">
+        <img src="img/logo.png">
+        <div class="text">
+            <h1>Launching in : </h1>
+            <h1 id="time">645 Days 16h 56m 06s</h1>
+            <h2>Perfect and awesome template to present your future product or service.</h2>
+            <h2>Hooking audience attention is all in the opener.</h2>
+        </div>
+        <div class="box_btn">
+            <a class="more_btn">More information</a>
+            <a class="noti_btn">Notify Me!</a>
+        </div>
+    </div>
+    <!--右边隐藏盒子的内容-->
+    <div class="right_side">
+        <div class="text">
+        <h1>Light, Versatile & Surprising</h1>
+            <p>Hi, I'm Phly, your new template ready to use. Handmade, precisely built with the famous Bootstrap Framework.
+                Bonjour, je suis Phly, votre nouveau template prêt à l'emploi. Fait main, construit avec précision grâce
+                au célèbre Framework Bootstrap. 嗨，我是PHLY，新模板准备。手工制作的，正是建有著名的引导框架。Hallo,
+                ich bin Phly, Ihre neue Vorlage bereit. Handmade, genau mit dem berühmten Bootstrap Framework erstellt. Hola,
+                soy Phly, la nueva plantilla de lista. Hecho a mano, construido precisamente con el famoso Marco Bootstrap.</p>
+           <div class="img_box"><img src="img/close.gif"></div>
+            <div class="news_box">
+                <div class="my-gallery" data-pswp-uid="1">
+                    <figure>
+                        <div>
+                        <a href="img/gallery-1.jpg" data-size="1024x768">
+                            <img src="img/gallery-1.jpg" title="click"></a>
+                        </div>
+                        <figcaption >FLY IN THE SKY</figcaption>
+                    </figure>
+                    <figure>
+                        <div>
+                        <a href="img/gallery-2.jpg" data-size="1920x1280" >
+                            <img src="img/gallery-2.jpg" title="click"></a>
+                            </div>
+                        <figcaption > 探索世界</figcaption>
+                    </figure>
+                    <figure>
+                        <div>
+                        <a href="img/gallery-3.jpg" data-size="1920x1280" >
+                            <img src="img/gallery-3.jpg" title="click"></a>
+                        </div>
+                        <figcaption > ENTRE CIEL ET MER</figcaption>
+                    </figure>
+
+                        <figure>
+                            <div>
+                            <a href="img/gallery-4.jpg" data-size="1920x1280" >
+                                <img src="img/gallery-4.jpg" title="click"></a>
+                            </div>
+                            <figcaption > IN EINEM KOKON</figcaption>
+                        </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="get_noti">
+        <img src="img/close_noti.gif">
+        <h1>You like taking the lead of line?</h1>
+        <p>Being the first to know always feels great... </p>
+        <p>Signing up to our newsletter gives you </p>
+        <p>exclusive access to our Grand Opening!</p>
+        <form>
+            <input type="text" id="text" placeholder="click here to write your email">
+            <input type="submit" id="get" value="GET NOTIFIED">
+        </form>
+    </div>
+
+</div>
+
+ <script src="js/jquery.min.js"></script>
+<script src="js/photoswipe.js"></script>
+<script src="js/photoswipe-ui-default.min.js"></script>
+<script src="js/star.js"></script>
+<script src="js/check_bigger.js"></script>
+<!--点小图查看大图-->
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

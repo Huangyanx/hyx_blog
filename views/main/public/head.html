@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>前端博客</title>
+
+    <meta name="viewport" content="width-device-width,initial-scale=1.0,maximun-scale=1.0,user-scalable=1">
+<meta name="keywords" content="web前端博客，web前端笔记，web前端开发，黄艳雄的博客">
+<meta name="description" content="黄艳雄前端博客，个人前端笔记与案例展示，学习经验交流">
+	<script>
+			document.getElementsByTagName('html')[0].style.fontSize=document.documentElement.clientWidth/10;
+	</script>
+
+<link rel="styleSheet" href="/css/reset.css">
+<link rel="styleSheet" href="/css/head.css">
+<link rel="styleSheet" href="/font/iconfont.css">
+	<link rel="icon" href="/images/title_img.ico" type="img/x-ico">
+</head>
+<body>
+
+	<header id="header">
+		<nav>
+            <i class="iconfont ico_le icon-stealth_fill" date-show="0"></i>
+            <i class="iconfont ico_ri icon-stealth_fill" date-show="0"></i>
+			<div class="host">
+				<a href="/"title="Huangyanx Blog">Huangyanx Blog</a>
+			</div>
+			<ul class="modular">
+				<li class="dropdown ">
+					<a href="/">首页</a></li>
+				<li class="dropdown">
+					<a href="/project">特效作品</a>
+					<div class="secondMenu">
+						<a href="/project/hcj">h5+css3+js+jq</a>
+						<a href="/project/node">node</a>
+						<a href="/project/angular">angular</a>
+						<a href="/project/vue">vue</a>
+						<a href="/project/es6">es6</a>
+					</div>
+				</li>
+				<li class="dropdown">
+					<a href="/artcle">文章</a></li>
+					<div class="secondMenu">
+						<a href="/artcle/dump">遇过的坎</a>
+					</div>
+				<li class="dropdown">
+					<a href="/note">学习笔记</a></li>
+				<li class="dropdown"><a href="/book">推荐书籍</a></li>
+				<li class="dropdown"><a href="/aboutMe">关于我</a>
+					<div class="secondMenu">
+						<a href="/aboutMe/resume">简历</a>
+					</div>
+				</li>
+			</ul>
+			<div class="contact">
+				<a href="#" class="iconfont icon-homesearch sear"></a>
+				<a href="#" class="iconfont icon-socialgithuboutline"></a>
+				<a href="#" class="iconfont icon-qq"></a>
+				<a href="#" class="iconfont icon-message"></a>
+				<span class="user show-login">登陆 </span>/
+
+				<span  class="user show-register"> 注册</span>
+			</div>
+			<form id="searchForm" method="get" action="search">
+				<input class="search" placeholder="请输入关键字">
+			</form>
+		</nav>
+	</header>
+<div class="user_box">
+	<form class="login-form" onsubmit="return false">
+		<span class="close">x</span>
+		<h3>登陆页面</h3>
+		<div class="form-group">
+			<input type="text" class="login-user" name="username" placeholder="请输入用户名" required>
+			<i class="iconfont icon-true"></i>
+			<p></p>
+		</div>
+		<div class="form-group">
+			<input type="password" class="login-pwd" name="pwd" placeholder="请输入密码" required>
+			<i class="iconfont icon-true"></i>
+			<p></p>
+		</div>
+		<input type="checkbox" id="rem_user"><label for="rem_user">记住我的登陆信息</label>
+		<a class="show-register">返回注册页面</a>
+		<input type="submit" class="send disabled" value="登陆">
+
+	</form>
+	<form class="register-form" onsubmit="return false">
+		<span class="close">x</span>
+			<h3>注册页面</h3>
+			<div class="form-group">
+				<input type="text" class="reg-user" name="username" placeholder="请输入用户名" required>
+				<i class="iconfont icon-true"></i>
+				<p></p>
+			</div>
+			<div class="form-group">
+				<input type="password" class="reg-pwd" name="pwd" placeholder="请输入密码" required>
+				<i class="iconfont icon-true"></i>
+				<p></p>
+			</div>
+			<div class="form-group">
+				<input type="password" class="reg-sure-pwd"  placeholder="再次输入密码" required>
+				<i class="iconfont icon-true"></i>
+				<p></p>
+			</div>
+			<a class="show-login">返回登录页面</a>
+		<input type="submit"class="send disabled" value="注册">
+	</form>
+</div>
+	<div class="shade"></div>

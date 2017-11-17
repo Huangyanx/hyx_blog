@@ -1,0 +1,33 @@
+{
+  "name": "blog",
+  "version": "5.0.0",
+  "description": "private blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Huangyanx/Huangyanx.github.io.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "huangyanx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Huangyanx/Huangyanx.github.io/issues"
+  },
+  "homepage": "https://github.com/Huangyanx/Huangyanx.github.io#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "connect-multiparty": "^2.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.5",
+    "express-session": "^1.15.6",
+    "md5": "^2.2.1",
+    "multiparty": "^4.1.3",
+    "mysql": "^2.15.0",
+    "ueditor": "^1.2.3"
+  }
+}

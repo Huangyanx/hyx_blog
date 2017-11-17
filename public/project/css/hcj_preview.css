@@ -1,0 +1,114 @@
+@media screen and (max-width:980px){
+    .main{  margin:0 0 140px 0 ; }
+    .pre_content{width: 100%;}
+    .pre_hot {width: 0;display: none;}
+}
+@media screen and (min-width:980px) and (max-width:1280px){
+     .main{  margin:0 0 140px 0 ;}
+    .pre_content{width: 76%;margin-right: 4%;}
+    .pre_hot {width: 20%;}
+}
+@media screen and (min-width:1280px) and (max-width: 1920px){
+    .main{  margin:0 6% 140px 6% ; }
+    .pre_content{width: 76%;margin-right: 4%;}
+    .pre_hot {width: 20%;}
+}
+
+body{background-color: #eee;}
+.main{
+    position: relative;
+    top:100px;
+    left:0;
+    overflow: hidden;
+}
+.main .addr{
+       min-height: 40px;
+       margin-left: 20px;
+}
+ .main .addr ul li{
+       position: relative;
+       float: left;
+       line-height: 40px;
+       margin-right: 25px;
+ }
+ .main .addr ul li:after{
+       content: '/';
+       position: absolute;
+       top:0px;
+       right: -12px;
+ }
+ .main .addr ul li i{
+       color:#000;
+ }
+   .module_list{
+       margin: 20px 0 20px 20px;
+   }
+   .module_list a{
+       margin: 2px 10px;
+       padding: 3px 10px;
+       line-height: 40px;
+       background-color: #00ccff;
+       color: #fff;
+       transition: 0.8s;
+   }
+   .module_list a:hover{
+       padding: 3px 15px;
+       border-radius:25px;
+   }
+.main .main_preview{
+    margin:20px 0;
+}
+.main .main_preview .back{
+    background-color: #eee;
+}
+.pre_content{
+    margin-right: 4%;
+    padding-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 15px #bbb;
+}
+.pre_hot{
+    background-color: #fff;
+    box-shadow: 0 2px 15px #bbb;
+}
+.pre_hot .hot {
+    width: 100%;
+}
+.sayGood{
+    text-align: center;
+}
+.sayGood .say{
+    margin-right: 20px;
+    padding: 10px 30px;
+    background-color: #00ccff;
+    border-radius: 8px;
+    color:#fff;
+    cursor: pointer;
+
+}
+
+.comment{
+    margin: 20px;
+}
+.comment h3{
+    margin: 15px 20px;
+}
+#send_comment{
+    padding: 8px 20px;
+    background-color: #00ccff;
+    border: 1px solid #00ccff;
+    color: #fff;
+    border-radius: 5px;
+}
+.comment .comment_list{ padding: 20px; border-bottom: 1px solid #eee;}
+.comment .comment_list:hover .right{display: block;}
+.comment .comment_list .comm_hed{margin-bottom: 15px;clear: none;overflow: hidden;}
+.comment .comment_list .comm_hed .left{  float: left;}
+.comment .comment_list .comm_hed  .mid{margin-left: 10px;}
+.comment .comment_list .comm_hed  .mid h2{margin-bottom:8px;text-align: left;}
+.comment .comment_list .comm_hed .right{float: right}
+.comment .comment_list .reply,.reply_s{padding: 4px 8px;border:1px solid #00ccff;border-radius: 6px;background-color:#00ccff;color: #fff;}
+.comment .comment_list .comm_hed img{  width: 60px;  }
+.comment .comment_list .right{display: none;transition: 0.5s; cursor: pointer;}
+.comment .comment_list .reply-form{transition: 1s;transform-origin: top;}
+.comment .comment_list .content{}

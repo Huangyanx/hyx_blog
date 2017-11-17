@@ -1,0 +1,73 @@
+<%-include('../public/head.html')%>
+<link rel="stylesheet" href="/back/project/css/hcj.css">
+<div class="addr clearfix">
+    <ul>
+        <li><a href="/back"><i class="iconfont icon-shouye"></i> </a> </li>
+        <li><a href="/back/project"><i title="作品" class="mar_rig iconfont icon-sample"></i></a> </li>
+        <li><a href="/back/project">js</a> </li>
+    </ul>
+</div>
+<div class="module_list clearfix">
+    <a href="/back/project/hcj?tab=hcj">h5+c3+js</a>
+    <a href="/back/project/h5">html5</a>
+    <a href="/back/project/c3">css3</a>
+    <a href="/back/project/js?tab=js">javascript</a>
+    <a href="/back/project/node">nodejs</a>
+</div>
+<div class="cont_list">
+    <h2>JavaScript作品一览表</h2>
+    <a class="add" href="/back/project/js_add">添加</a>
+    <input class="search" placeholder="请输入关键词">
+    <input class="sea_cur" type="button" value="搜索当前">
+    <input class="sea_all" type="button" value="搜索所有">
+
+    <table border="1" cellspacing="0">
+            <tr>
+                <th><input id="check_all" class="check_all" type="checkbox"><label for="check_all">全选/全不选</label></th>
+                <th>id</th>
+                <th>标题</th>
+                <th>图片地址</th>
+                <th>预览地址</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+        <% for(var i in hcj_list){ %>
+            <tr>
+                <td><input class="check" type="checkbox" value="<%-hcj_list[i].id %>"></td>
+                <td><%-hcj_list[i].id %></td>
+                <td><%-hcj_list[i].title %></td>
+                <td><%-hcj_list[i].img %></td>
+                <td><%-hcj_list[i].preview %></td>
+                <td><%-hcj_list[i].time %></td>
+                <td><a class="delete" data-value="<%-hcj_list[i].id %>" date-tab="js">删除</a>/
+                    <a class="edit" href="/back/project/hcj_editor?id=<%-hcj_list[i].id %>&tab=js">修改</a>/
+                    <a class="preview" href="/back/project/hcj_preview?id=<%-hcj_list[i].id%>&tab=js">预览</a>/</td>
+
+            </tr>
+        <% } %>
+    </table>
+        <a class="dele_all">删除</a>
+        <div class="page">
+
+            <a href="/back/project/hcj?page=1&&tab=js">首页</a>
+            <% if(page!=1){%>
+            <a href="/back/project/hcj?page=<%-page_pre%>&&tab=js">上一页</a>
+            <%}%>
+            <span class="active">当前为第<%-page %>页</span>
+            <% if(page_next<=page_count){%>
+            <a href="/back/project/hcj?page=<%-page_next %>&&tab=js">下一页</a>
+            <%}%>
+            <a href="/back/project/hcj?page=<%-page_count %>&&tab=js">尾页</a>
+            <span>共<%-page_count %>页</span>
+            <select id="go_page">
+                <% for(var i=1; i<=page_count ; i++){ %>
+                <option value="<%-i %>" <% if(page==i){%> selected="selected" <% }%> >第<%-i %>页</option>
+               <%}%>
+            </select>
+        </div>
+
+</div>
+<%-include('../public/footer.html')%>
+<script src="/back/js/check_all.js"></script>
+<script src="/back/project/js/hcj.js"></script>
+<script src="/js/page_go.js"></script>

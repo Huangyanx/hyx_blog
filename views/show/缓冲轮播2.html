@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+        ul{
+            list-style: none;
+        }
+        #banner{
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            border:1px #ccc solid;
+            padding: 5px;
+
+            position: relative;
+        }
+        #banner #inner{
+            width:100%;
+            height:100%;
+            position: relative;
+            background-color: pink;
+            overflow: hidden;
+        }
+        #banner ul{
+            width:500%;
+            position: absolute;
+            left:0px;
+            top:0px;
+        }
+        #banner ul li{
+            float: left;
+        }
+        #banner ol{
+            position: absolute;
+            left: 50%;
+            margin-left: -80px;
+            bottom: 10px;
+        }
+        #banner ol li{
+            float: left;
+            width: 18px;
+            height: 18px;
+            background-color: #fff;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 18px;
+            cursor: pointer;
+            list-style: none;
+        }
+        #banner ol li.cur{
+            background-color: orange;
+        }
+        #control{
+            position: absolute;
+            display: none;
+            width:100%;
+            top:50%;
+            line-height: 40px;
+            margin-top: -20px;
+        }
+        #control span{
+            display: block;
+            height:40px;
+            width: 40px;
+            background-color:rgba(0,0,0,.6);
+            color: #fff;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        #control span:nth-child(1){
+            position: absolute;
+            left: 2px;
+        }
+        #control span:nth-child(2){
+            position: absolute;
+            right: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div id="banner">
+    <div id="inner">
+        <ul>
+            <li><img src="/show_img/01-y.jpg" ></li>
+            <li><img src="/show_img/02-y.jpg" ></li>
+            <li><img src="/show_img/03-y.jpg" ></li>
+            <li><img src="/show_img/04-y.jpg" ></li>
+            <li><img src="/show_img/05-y.jpg" ></li>
+        </ul>
+    </div>
+    <ol>
+        <li class="cur">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+    <div id="control">
+        <span id="left"> < </span>
+        <span id="right"> ></span>
+    </div>
+</div>
+
+ <script>
+        /*
+         轮播加缓冲，每张图片都是一个缓冲运动    轮播为自动轮播到下一张（缓冲运动仅是对当前图片进行的）
+         盒子的宽高为一张图片的宽高，超出的其他隐藏   最外面盒子的宽也是一张图片的宽度，ul通过设置500%增大ul的宽  刚好能放所有的图片
+         所有的操作都是锁定第一张进行
+         */
+        window.onload=function(){
+            function $(id){return document.getElementById(id)};
+            var oBanner=$("banner"); //获取盒子的ID
+            var oUl=$("inner").children[0];  //获取要移动UL
+            var aLi=oBanner.children[1].children;
+			var length=aLi.length;
+            var speed=null,target=0,num=0,timer=null,time=null;//速度，目标地点
+            oBanner.onmouseover=function () {
+                $("control").style.display="block";
+				clearInterval(time);
+            }
+            oBanner.onmouseout=function () {
+                $("control").style.display="none";
+				atuoPlay();
+            }
+            $('left').onclick=function () {
+                target-=490;
+                num--;
+				run();
+            }
+            $('right').onclick=function () {
+                target+=490;
+                num++;
+                run();
+            }
+            function think(){
+                //缓冲   通过改变ul的位置进行
+                clearInterval(timer);
+                timer=setInterval(function () {
+                    speed=(target-oUl.offsetLeft)/10;//当前图片的缓冲速度  为当前图片要到达的地点减去图片初始地点，即盒子ul的位置
+                    speed=speed>0?Math.ceil(speed):Math.floor(speed);//速度取整
+					oUl.style.left=oUl.offsetLeft+speed+"px";//图片进行缓冲运动
+                },20);//相当于延迟了一点点   80毫秒
+
+            }
+
+            function atuoPlay() {
+                //自动轮播   通过改变ul的位置进行
+                clearInterval(time);
+                time=setInterval(function () {
+                    target += 490;//下一次ul的位置	
+					num++;
+					run();
+                   
+                
+                },2000);//800毫秒下一张轮播
+            }
+			//样式改变
+            function fn() {
+                for (var i=0;i<length;i++) {
+                    aLi[i].className = '';
+                }
+               aLi[num].className='cur';
+			   
+            }
+            for (var i=0;i<length;i++){
+                //点击
+                aLi[i].index=i;
+                aLi[i].className='';
+                aLi[i].onclick=function () {
+                    num=this.index;
+                    target=-this.index*490;
+					run();
+
+                }
+            }
+			//临界条件
+			function critical(){
+				if(target<-4*490){target =0;oUl.style.left="0px";}
+				if (target>0){target=-3*490;oUl.style.left="-1960px";}
+				if (num>=length){num=0;}
+				if (num<0){num=length-1;}
+				
+			}
+			function run(){
+				critical();//临界条件检查
+				fn();//样式改变
+				think();//缓冲效果
+				
+			}
+			run();
+			atuoPlay();
+
+        }
+    </script>
+</body>
+</html>

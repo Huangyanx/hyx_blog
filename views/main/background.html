@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+body{
+	margin:0;
+	paddiing:0;
+	background-color:rgba(201,247,234,1);
+	color:#fff;
+	overflow:hidden;
+}
+</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+
+<script>
+	var canvas=document.getElementById("canvas");
+	var w,h;
+	var cxt=canvas.getContext("2d");
+	var num=200;
+	var data=[],move={};
+	init();
+	window.onresize=function(){
+		move={};
+		data=[];
+		init();
+	}
+	//解决帧卡顿问题
+window.requestAnimFrame=(function(){
+	return window.requestAnimationFrame||
+			window.webkitRequestAnimationFrame||
+			window.mozRequestAnimationFrame||
+			function(callback){
+				window.setTimeout(callback,1000/60);
+			};
+})();
+function init(){
+	w=canvas.width=window.innerWidth;
+	h=canvas.height=window.innerHeight;
+	console.log('innnerWidth'+w);
+	console.log('innnerHidth'+h);
+	//随机粉点的位置以及速度的初始化
+	for(var i=0;i<num;i++){
+		data[i]={x:Math.random()*w,y:Math.random()*h,rx:(Math.random()*0.6-0.3),ry:(Math.random()*0.6-0.3)};
+		circle(data[i].x,data[i].y);
+	}
+}
+//粉点以圆点出现
+function circle(x,y){
+	cxt.save();
+	cxt.fillStyle="pink";
+	cxt.beginPath();
+	cxt.arc(x,y,0.5,Math.PI*2,false);
+	cxt.closePath();
+	cxt.fill();
+	cxt.restore();
+}
+//粉点运动
+!function draw(){
+	cxt.clearRect(0,0,w,h);
+	for(var i=0;i<num;i++){
+		data[i].x+=data[i].rx;
+		data[i].y+=data[i].ry;
+		//到边界时，速度取反，即反向运动
+		if(data[i].x>w || data[i].x<0) data[i].rx=-data[i].rx;
+		if(data[i].y>h||data[i].y<0) data[i].ry=-data[i].ry;
+		circle(data[i].x,data[i].y);
+		//附近70的点连线
+		for(var j=i+1;j<num;j++){
+			if(((data[i].x-data[j].x)*(data[i].x-data[j].x)+
+			(data[i].y-data[j].y)*(data[i].y-data[j].y))<=70*70){
+				line(data[i].x,data[i].y,data[j].x,data[j].y,false);
+			}
+			//鼠标经过时，附近点与鼠标连线
+			if(move.x){
+				if(((data[i].x-move.x)*(data[i].x-move.x)+(data[i].
+				y-move.y)*(data[i].y-move.y))<=120*120){
+					line(data[i].x,data[i].y,move.x,move.y,true);
+				
+				}
+			}
+		}
+	}
+	/*setInterval(function(){
+		draw();
+	},130);*/
+	
+		window.requestAnimFrame(draw);
+	
+}();
+function line(x1,y1,x2,y2,coCh){
+	var color=cxt.createLinearGradient(x1,y1,x2,y2);
+	if(coCh){
+		color.addColorStop(0,"pink");
+		color.addColorStop(0.5,"purple");
+		color.addColorStop(1,"red");
+	}else{
+		color.addColorStop(0,"#9494e6");
+		color.addColorStop(0.5,"#4747c7");
+		color.addColorStop(1,"blue");
+		
+	}
+	
+	cxt.save();
+	cxt.strokeStyle=color;
+	cxt.beginPath();
+	cxt.moveTo(x1,y1);
+	cxt.lineTo(x2,y2);
+	cxt.stroke();
+	cxt.restore();
+}
+document.onmousemove=function(eve){
+	move.x=eve.clientX;
+	move.y=eve.clientY;	
+}
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,252 @@
+﻿body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,input,p 
+{
+	padding: 0; margin: 0; 
+} 
+body{
+	margin:auto;
+	color:#41866F;
+    font-family: "comic sans ms";
+
+	}
+@media screen and (max-width:640px){
+	.main{
+		width: 100%;
+	}
+	.main .left{
+		width:100%;
+	}
+	.main .right{
+		width: 90%;
+		
+	}
+	.pro_exp .time,.work_exp .time{  
+		width: 100%;
+		border-bottom: 1px solid #ccc;
+	}
+	.pro_exp  .content,.work_exp .content{
+		width:100%;
+	}
+	.pro_exp .pro,.work_exp .work{
+		border-bottom:1px solid #ccc;
+		padding-bottom:10px;
+	}
+		
+	
+}
+@media screen and (min-width:640px) and (max-width:1280px){
+	.main{
+		width: 100%;
+	}
+	.main .left{
+		float:left;
+		width:80%;
+	}
+	.main .right{
+		width: 20%;
+		
+		float: left;
+		
+	}
+	.pro_exp .time,.work_exp .time{  
+		width: 20%;
+		border-right: 1px solid #ccc;
+	}
+	.pro_exp  .content,.work_exp .content{
+		width:74%;
+	}
+	
+}
+@media screen and (min-width:1280px){
+	.main{
+		width: 70%;
+		margin: 5px 10% 5px 15%;
+	}
+	.main .left{
+		width:70%;
+		float:left;	
+	}
+	.main .right{
+		width: 30%;
+		float: left;	
+	}
+	.pro_exp .time,.work_exp .time{  
+		width: 20%;
+		border-right: 1px solid #ccc;
+	}
+	.pro_exp  .content,.work_exp .content{
+		width:74%;
+	}
+}
+
+
+.main{
+	padding: 20px 20px 20px 0;
+	background-color: #F6F4D8;
+	overflow: hidden;
+}
+.main p{
+	text-indent:20px;
+	font-size:15px;
+	font-weight:100;
+	line-height:25px;
+	margin-right:20px;
+	font-size:18px;
+}
+.main .right{
+	background-color: #41866F;
+	border-top-left-radius: 100px;
+	border-top-right-radius: 100px;
+	color: #fff;
+	overflow: hidden;
+	// margin-bottom: 8px;
+}
+.main .left .title{
+	background-color: #41866F;
+	color: white;
+	width: 180px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 35px;
+	border-radius: 5px;
+	-moz-box-shadow:0 8px 5px #30755e;
+     -webkit-box-shadow:0 8px 5px #30755e;
+     box-shadow:0 8px 5px #30755e;
+}
+.main .left .mar_left{
+	margin-left:40px;
+}
+.main .left .intro_self{
+	margin:10px 0;
+}
+.pro_exp,.work_exp{
+	margin-bottom:20px;
+}
+
+.main .left .pro_exp .pro_head,.main .left .work_exp .work_head{
+	width:80%;
+	border-bottom:1px solid #ccc;
+}
+.main .left .pro_exp .pro_name,.main .left .work_exp .work_name{
+	font-size: 29px;
+	font-weight: 600;
+}
+.pro_exp .pro_head img,.work_exp .work_head img{
+	box-shadow: 5px 4px 8px #30755e;
+}
+.pro_exp .time,.work_exp .time{  
+    margin: 5px 10px;
+    height:auto;
+	line-height:50px;
+	float: left;
+	padding-bottom: 2000px;
+    margin-bottom: -2000px;
+}
+
+.pro_exp  .content,.work_exp .content{
+	float:left;
+}
+.pro_exp .pro,.work_exp .work{
+	clear:both;
+	overflow:hidden;
+	margin-bottom: 10px;
+}
+
+.main .right .head_img{
+	margin-top:43px;
+	text-align: center;
+}
+.main .right .head_img img{
+	width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.main .right .info_r{
+	text-align: left;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.main .right .info_r .head{
+	margin: 8px 12px;
+	border-bottom:1px solid #ccc;
+	overflow: hidden;
+    width: 80%;
+}
+.main .right .info_r .head .img{
+	float:left;
+}
+.main .right .info_r .head span{
+	float:left;
+	font-size: 1.5rem;
+}
+.main .right .info_r .cont p{
+	 line-height: 25px;
+	 font-size: 1.3rem;
+}
+.main .right .info_r .cont .sk{
+	padding-bottom: 15px;
+    overflow: hidden;
+}
+.main .right .info_r .cont .bor_left{
+	float:left;
+	margin-right:1rem;
+}
+.main .right .info_r .cont span{
+	width: 83%;
+    float: left;
+	margin:0 4px 0 20px;
+	font-size: 1.1rem;
+}
+.main .right .info_r .cont .ball{
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	background-color:#fff;
+	color:#41866F;
+	font-size:10px;
+	text-align:center;
+	line-height: 20px;
+}
+.main .right .info_r .cont .bor{
+    width: 5px;
+    background-color: #fff;
+    margin-left: 9px;
+	padding-bottom: 2000px;
+    margin-bottom: -2000px;
+}
+   
+.main footer{
+	width:100%;
+	background-color: #275f4c;
+	border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+	color:#fff;
+	clear:both;
+	padding: 5px;
+	overflow:hidden;
+}
+.main footer .bk{
+	margin: 13px 0 5px 45px;
+	color:#fff;
+	line-height: 40px;
+}
+.main footer .bk img{
+	float:left;
+	box-shadow: 5px 4px 8px #448670;
+}
+.main footer .bk a{
+	float: left;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 25px;
+    text-indent: 8px;
+}
+.main footer .bk a:hover{
+	color:#ccc;
+	font-size:18px;
+	transition:all .5s ease;
+}
+

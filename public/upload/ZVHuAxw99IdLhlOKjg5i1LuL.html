@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{margin: 0px; padding: 0px;}
+			a{ text-decoration: none;}
+			#content{width: 500px; margin: auto;}
+			#bor{width: 420px; height: 320px; overflow: hidden; border: 8px solid #999999; position: relative; float: left;}
+			#content>ul{width: 50px; margin-left: 10px; display: block; float: left;}
+			#content>ul li{ list-style: none; width: 50px; height: 50px; background:#0F3E68; float: left; text-align: center; line-height: 50px;
+			color: #fff; font-size: 30px; margin-bottom: 5px; cursor: pointer; }
+			
+			#content>ul .aLi{background: #3A95A7;}
+			#bor #tex1{ position: absolute; width: 100%; height: 35px; line-height: 35px; color: #fff; bottom: 0px; text-align: center;
+							background: #000000; opacity: 0.7; filter: alpha(opacity:70);  overflow: hidden;}
+			#bor #span1{ position: absolute; width: 100%; height: 35px; line-height: 35px; color: #fff; top: 0px; text-align: center;
+							background: #000000; opacity: 0.7; filter: alpha(opacity:70);  overflow: hidden;}
+		</style>
+		<script>
+			window.onload=function(){
+				var oContent=document.getElementById("content");
+				var oText=document.getElementById("tex1");
+				var oSpan1=document.getElementById("span1");
+				var oImg=document.getElementById("img1");
+				var aList=oContent.getElementsByTagName("li");
+
+				var arrImg=['images/a1.jpg', 'images/a2.jpg', 'images/a3.jpg', 'images/a4.jpg',];
+				var arrText=['这是我的第一个图片','哈哈哈','333333333333','44444444444'];
+				var arrSpan=[11111,2222,3333,4444];
+				var num=0,timer;
+				fn();//默认第一张图片
+				//定时
+				function setTime() {
+					clearInterval(timer);
+					timer = setInterval(function () {
+						num++;
+						if (num >= aList.length) num = 0;
+						fn();
+
+					}, 2000);
+				}
+				setTime();//自动轮播
+				//点击
+				for (var i=0;i<aList.length;i++){
+					aList[i].index=i;//标记
+					aList[i].onclick=function () {
+						num=this.index;
+						setTime();//重新计时
+						fn();
+					}
+				}
+				function  fn() {
+					for (var i=0;i<aList.length;i++) {
+						aList[i].className = "";//清除变色样式
+					}
+					aList[num].className="aLi";//变色
+					oText.innerHTML=arrText[num];
+					oSpan1.innerHTML=arrSpan[num];
+					oImg.src=arrImg[num];
+				}
+				oImg.onmouseover=function () {
+					clearInterval(timer);//暂停
+				}
+				oImg.onmouseout=function () {
+					setTime();//开启轮播
+				}
+
+
+			};
+
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="bor">
+				<p id="tex1">正在加载中</p>
+				<span id="span1">正在加载中。。。</span>
+				<img id="img1" src="">
+			</div>
+			<ul>
+				<li class="aLi">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</body>
+</html>

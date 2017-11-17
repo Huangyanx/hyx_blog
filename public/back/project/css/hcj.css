@@ -1,0 +1,73 @@
+.cont_right .main .cont_list{
+    width: 100%;
+    text-align: center;
+    margin:10px 5px;
+}
+.cont_right .main .cont_list h2{
+    margin: 10px auto;
+}
+.cont_right .main .cont_list .add{
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #00ccff;
+    border-color:#00ccff ;
+    color: #fff;
+    cursor: pointer;
+}
+.cont_right .main .cont_list .search{
+    line-height: 25px;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+ .main .cont_list input.sea_cur, .main .cont_list input.sea_all{
+    padding: 5px 10px;
+     margin-right: 10px;
+    background-color: #00ccff;
+    border:1px solid #00ccff;
+    color:#fff;
+     border-radius: 5px;
+}
+
+.cont_right .main .cont_list table{
+    margin: 10px auto;
+    border-color: #eee;
+
+}
+.cont_right .main .cont_list table tr th{
+    padding: 5px 10px;
+    background-color:#2D0067;
+    border-color: #2D0067;
+    color:#fff;
+}
+.cont_right .main .cont_list table td{
+    padding: 5px 10px;
+}
+table tr td .delete{
+    color:red;
+}
+table tr td .edit,table tr td .preview{
+    color:#00ccff ;
+}
+.cont_right .main .cont_list .check_all{
+    margin-right: 5px;
+}
+.cont_right .main .cont_list .dele_all{
+    float: left;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 100px;
+    background-color: red;
+    color: #fff;
+}
+.cont_right .main .cont_list .page{
+    float: right;
+    margin-right: 20px;
+}
+.cont_right .main .cont_list .page a,.cont_right .main .cont_list .page span{
+    margin-right: 10px;
+}
+.cont_right .main .cont_list .page .active{
+    color:#00ccff ;
+}
