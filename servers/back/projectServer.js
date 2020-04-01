@@ -152,7 +152,7 @@ exports.hcjEditorDo=(req,res,next)=>{
 }
 //hcj预览页面
 exports.hcj_preview=(req,res,next)=>{
-    var tab=req.query.tab;
+    var tab=req.query.tab ? req.query.tab:'hcj';
     var id=req.query.id;
     var sql='select * from '+tab+' where id="'+id+'"';
        db.connection.query(sql,function (error,results,fieds) {

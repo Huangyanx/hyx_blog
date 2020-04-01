@@ -33,7 +33,7 @@
 			<div class="cont">
 				<div class="cont_head">
 					<h3><a href="/project/hcj_preview?id=<%-hcj_list[j].id %>&tab=hcj"> <%-hcj_list[j].title %></a></h3>
-					<span><%-time[j] %></span>
+					<span><%-hcj_list[j].datetime %></span>
 					<i class="iconfont icon-comment"><%-hcj_list[j].comment_num %></i>
 					<i class="iconfont icon-view"><%-hcj_list[j].count %></i>
 					<i class="iconfont icon-good"><%-hcj_list[j].good %></i>
@@ -50,7 +50,25 @@
 				<h1>发布文章</h1>
 				<h4><a href="/artcle">更多最新文章</a></h4>
 			</div>
-			<div class="show"></div>
+			<% for( var j in bump_list){ %>
+			<div class="show">
+				<a href="/article/article_preview?id=<%-bump_list[j].id %>">
+					<img src="/images/title.png">
+				</a>
+				<div class="cont">
+					<div class="cont_head">
+						<h3><a href="/article/article_preview?id=<%-bump_list[j].id %>"> <%-bump_list[j].title %></a></h3>
+						<span><%-bump_list[j].datetime %></span>
+						<i class="iconfont icon-comment"><%-bump_list[j].comment_num %></i>
+						<i class="iconfont icon-view"><%-bump_list[j].count %></i>
+						<i class="iconfont icon-good"><%-bump_list[j].good %></i>
+						<i class="iconfont icon-thumbs-down"><%-bump_list[j].tread %></i>
+					</div>
+					<div class="content"><%-bump_list[j].content %></div>
+
+				</div>
+			</div>
+			<% }%>
 		</div>
 		<div class="plate">
 			<div class="head">

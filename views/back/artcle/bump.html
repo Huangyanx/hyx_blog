@@ -15,7 +15,7 @@
     <a href="/back/project/node">nodejs</a>
 </div>
 <div class="cont_list">
-    <h2>html5作品一览表</h2>
+    <h2>文章列表</h2>
     <a class="add" href="/back/artcle/bump_add">添加</a>
     <input class="search" placeholder="请输入关键词">
     <input class="sea_cur" type="button" value="搜索当前">
@@ -26,8 +26,6 @@
                 <th><input id="check_all" class="check_all" type="checkbox"><label for="check_all">全选/全不选</label></th>
                 <th>id</th>
                 <th>标题</th>
-                <th>图片地址</th>
-                <th>预览地址</th>
                 <th>时间</th>
                 <th>操作</th>
             </tr>
@@ -36,8 +34,6 @@
                 <td><input class="check" type="checkbox" value="<%-bump_list[i].id %>"></td>
                 <td><%-bump_list[i].id %></td>
                 <td><%-bump_list[i].title %></td>
-                <td><%-bump_list[i].img %></td>
-                <td><%-bump_list[i].preview %></td>
                 <td><%-bump_list[i].time %></td>
                 <td><a class="delete" data-value="<%-bump_list[i].id %>">删除</a>/
                     <a class="edit" href="/back/artcle/bump_editor?id=<%-bump_list[i].id %>">修改</a>/

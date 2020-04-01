@@ -1,17 +1,29 @@
 exports.main_list=(req,res,next)=>{
     //project的hcj 列表
     var sql3 ="select * from hcj ORDER BY time DESC limit 0,8";
-    var hcj_list=[],time=[];
+    var hcj_list=[];
     var conn3=db.connection.query(sql3);
     conn3.on('result',function (row) {
         hcj_list.push(row);
         var arr=row.time.split('.');
-        time.push(arr[0]);
+        row.datetime=arr[0];
     });
 
     conn3.on('end',function () {
-        res.render('main/index',{hcj_list,time});
+        var sql4 ="select * from bump ORDER BY time DESC limit 0,8";
+        var bump_list=[];
+        var conn4=db.connection.query(sql4);
+        conn4.on('result',function (row1) {
+            bump_list.push(row1);
+            var arr=row1.time.split('.');
+            row1.datetime=arr[0];
+        });
+        conn4.on('end',function () {
+            res.render('main/index',{hcj_list,bump_list});
+        });
     });
+
+
 
 }
 exports.hcj_preview=(req,res,next)=>{

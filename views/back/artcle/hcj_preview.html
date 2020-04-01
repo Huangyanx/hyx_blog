@@ -1,0 +1,44 @@
+<%-include('../public/head.html')%>
+<link rel="stylesheet" href="/back/project/css/hcj_preview.css">
+<%-include(addr)%>
+<div class="module_list clearfix">
+    <a href="/back/project/hcj">h5+c3+js</a>
+    <a href="/back/project/h5">html5</a>
+    <a href="/back/project/c3">css3</a>
+    <a href="/back/projectjs/">javascript</a>
+    <a href="/back/project/node">nodejs</a>
+</div>
+<div class="pre_content">
+    <a class="back" href="javascript:history.back(1);">返回</a>
+    <div class="content">
+        <h2><%-hcj[0].title %></h2>
+        <h6>发布于：<%-hcj[0].time %><i class="iconfont icon-comment"><% if(count) count  %></i><i class="iconfont icon-view"><%-hcj[0].count %></i> </h6>
+        <div><%-hcj[0].content %></div>
+    </div>
+    <% if(hcj[0].preview){ %>
+       <div class="show"><a href="/show?page=<%-hcj[0].preview %>"><%-hcj[0].title %>预览</a></div>
+    <% } %>
+    <div class="next">
+        <% if(is_next){ %>
+        <h3>下一条</h3>
+        <a href="/back/artcle/bump_preview?id=<%-next[0].id %>"><%-next[0].title %></a>
+        <% }else{ %>
+        <h3>这是最后一个作品了</h3>
+        <%}%>
+    </div>
+
+
+</div>
+<div class="pre_hot">
+    <div class="hot">
+        <h3>最近作品</h3>
+       <ul>
+           <% for(var i in hot) { %>
+           <li><span><% a=Number(i)+1; %><%-a;%></span><a href="/back/artcle/bump_preview?id=<%-hot[i].id %>"><%-hot[i].title %></a></li>
+           <% } %>
+       </ul>
+    </div>
+
+</div>
+<%-include('../public/footer.html')%>
+
