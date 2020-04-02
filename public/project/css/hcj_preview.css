@@ -61,6 +61,17 @@ body{background-color: #eee;}
 .main .main_preview .back{
     background-color: #eee;
 }
+pre {
+    margin: 15px auto;
+    font: 12px/20px Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+    border: 1px solid #ddd;
+    border-left-width: 4px;
+    background: #fbfbfb top;
+    padding: 10px 15px;
+}
 .pre_content{
     margin-right: 4%;
     padding-bottom: 15px;

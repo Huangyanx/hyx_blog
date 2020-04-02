@@ -21,9 +21,10 @@ router.get('/has_user',userServer.has_user);
 router.get('/project',function (req,res) {
 	res.render('main/project/project');
 });
-router.get('/artcle',function (req,res) {
+router.get('/article',function (req,res) {
 	res.render('main/artcle/artcle');
 });
+router.get('/article/article_preview',articleServer.article_preview);
 router.get('/note',function (req,res) {
 	res.render('main/note/note');
 });

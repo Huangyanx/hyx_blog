@@ -34,6 +34,7 @@ router.get('/project/js_add',function (req,res,next) {
 });
 
 /*artcle*/
+router.get('/artcle/',articleServer.article);
 router.get('/artcle/bump_add',function (req,res,next) {
 	res.render('back/artcle/bump_add');
 });

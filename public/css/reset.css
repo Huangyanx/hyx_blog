@@ -2,7 +2,7 @@
 html,body,h1,h2,h3,h4,h5,h6,hr,p,form,button,input,th,td,ul,li{margin:0;padding:0}
 ul,ol,dl{list-style-type:none}
 html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
-body{font: 14px "Consolas", Microsoft Yahei;}
+body{font: 14px "Consolas", Microsoft Yahei;width:100%;overflow-x: hidden}
 a,area{outline:none;blr:expression(this.onFocus=this.blur())}
 a{text-decoration:none;cursor: pointer;color:#666;}
 a:hover{outline:none}
