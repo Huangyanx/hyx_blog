@@ -23,9 +23,8 @@ exports.main_list=(req,res,next)=>{
         });
     });
 
-
-
 }
+
 exports.hcj_preview=(req,res,next)=>{
     var tab=req.query.tab;
     var id=req.query.id;

@@ -3,12 +3,14 @@ exports.register_do=(req,res,next)=>{
     var username=req.query.username;
     var pwd=md5(req.query.pwd);
     var sql='insert into user (username,pwd,is_admin) values (?,?,?)';
+    res.end('对不起，您没有权限注册账号');
+    return false;
     db.connection.query(sql,[username,pwd,1],function (err,result,fileds) {
         if(err) throw err;
         if(result.length){
-            res.render('/back/login');
+            res.render('/user/login');
         }else {
-            res.render('back/register');
+            res.render('/user/register');
         }
 
     });

@@ -9,6 +9,8 @@ exports.login=(req,res,next)=>{
     db.connection.query(sql,[username,pwd],function (err,result,fileds) {
         if(err) throw err;
         if(result.length){
+            req.session.user_info = username
+            req.session.save();  //保存一下修改后的Session
            var status=1;
         }else {
             var status=0;

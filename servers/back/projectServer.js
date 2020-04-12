@@ -41,25 +41,29 @@ exports.hcjDo=(req,res,next)=>{
     var img_name=req.files.upimage.name;
     if(!img_name){img_name="02.jpg";}
     var tmp_img=req.files.upimage.path;
-    var target_img='./public/show_img/'+img_name;
-    fs.rename(tmp_img,target_img,function (err) {
-        if(err) throw err;
-    });
+    if(tmp_img){
+        var target_img='./public/show_img/'+img_name;
+        fs.rename(tmp_img,target_img,function (err) {
+            if(err) throw err;
+        });
+    }
 
     //上传预览代码
     if(req.files.upcode){
-        if(req.body.codename){
-           var types=req.files.upcode.name.split('.');
-           var pro_name=req.body.codename+'.'+types[1];
+        if(req.files.upcode.name){
+            var pro_name=req.files.upcode.name;
        }else{
-           var pro_name=req.files.upcode.name;
+            var pro_name=req.body.codename;
        }
         var tmp_path= req.files.upcode.path; // 获得文件的临时路径
-        var target_path = './views/show/'+ pro_name;
+        if(req.files.upcode.name){
+            var target_path = './views/show/'+ pro_name;
             // 指定文件上传后的目录 。
             fs.rename(tmp_path,target_path,function (err) {
                 if(err) throw err;
             })
+        }
+
     }else{
         var pro_name=null;
     }
