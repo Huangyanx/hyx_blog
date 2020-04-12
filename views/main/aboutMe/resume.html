@@ -14,222 +14,358 @@
 </head>
 <body>
 	<div class="main">
-		<div class="left">
-			<div class="mar_left">
-			<div class="title">RESUME</div>
-				<div class="intro_self">
-					<h1 class="name">黄艳雄</h1>
-                   <h4 class="info">
-                       93年8月 | 现居于深圳龙岗区平湖 | 本科
-                   </h4>
-                   <p class="introduct">
-                       有一年的实习工作经验，对前端开发工作岗位有一定的了解，有项目开发经验，能
-					   快速上手。 擅长原生js。在校期间开始接触HTML，css，Js，PHP。十月份中旬开始搭建博客，
-					   通过自己的技术全程搭建一个响应式的个人博客，将有意义的案例以及笔记、学习经验等发表在博客上。
-					   可以用管理员账户进行管理以及添加新的模块，现在基本功能已实现。首页的banner为用
-					   canvas+js多个动画实现的嫦娥奔月，内容部分用jq实现定位到相应的模块。而其他模块的首页（如
-					   案例等）是用jq实现缓存懒加载等。网站：<a href="http://huangyanx.top">http://huangyanx.top</a>
-                   </p>
+	<div class="left">
+		<div class="title">RESUME</div>
+		<div class="left-wrapper">
+			<!--<div class="intro_self">
+                <h1 class="name">黄艳雄</h1>
+               <div class="info">
+                   1993.08.17 | 现居于广州天河区棠下 | 本科
+               </div>
+               <p class="introduct theme-color">
+                   有两年多的工作经验， 拥有良好的团队协作精神和较强的时间意识，有自我钻研的精神，工作主动、认真，负责。
+                   具有较强的学习和自学新知识的能力，热爱IT行业。
+               </p>
 
+            </div>-->
+			<p>&nbsp;</p>
+			<div class="pro_exp">
+				<div class="pro_head">
+					<i class="img iconfont icon-xiangmu1"></i>
+					<span class="pro_name">&nbsp;&nbsp;项目经验</span>
 				</div>
-				<div class="pro_exp">
-					<div class="pro_head">
-						<img src="/aboutMe/images/experience.png">
-						<span class="pro_name">&nbsp;&nbsp;项目经验</span>
-					</div>
-					<div class="pro">
-						<div class="time same">2017.10至今 </div>
-						<div class="content same">
-							<h3>个人博客 </h3>
-							<p class="pro_cont">
-								用node搭建的个人博客。该博客将展示一些特效案例、发布文章以及一些学习笔记等。
-								该博客将实现管理员登录后台即可对所有的内容进行管理，也可直接添加或删除一大模块（如特效案例），
-								现在基础功能已实现，更多细节还在构建中。（<a href="http://huangyanx.top">http://huangyanx.top</a>）
-							</p>
-
+				<div class="pro">
+					<div class="time">2020.03（一月）</div>
+					<div class="content">
+						<div class="ex-head">
+							<h3> 外卖webapp</h3>
+							<h3>独立完成</h3>
 						</div>
-					</div>
-					<div class="pro">
-						<div class="time same">2017.08 </div>
-						<div class="content same">
-							<h3>澳源股份官网 </h3>
-							<p class="pro_cont">
-								该项目是澳源股份有限公司官网的首页。用原生Js将实现生动的动态效果以及jQuery实现全屏滚动。（线上
-								：<a href="http://www.aoyuankj.com/home/#ywfb">http://www.aoyuankj.com/home/#ywfb,GitHub</a>上：https://github.com/Huangyanx/aoyuan）
-							</p>
 
-						</div>
-					</div>
-					<div class="pro">
-						<div class="time same">2017.07</div>
-						<div class="content same">
-							<h3>腾科IT教育网站  </h3>
-							<p class="pro_cont">
-								腾科IT教育官网前期页面布局排版以及部分的动态效果。（<a href="http://togogo.net/">http://togogo.net/</a>，GitHub：togogo）
+						<div class="pro_cont">
+							<p>技术：vue-cli脚手架+cube-ui组件库</p>
+							<p>
+								项目描述：一个美食app，用户可以查看食物进行点餐，查看食物详情，评论、商家信息等。
 							</p>
-
+							<p>技术难点：商品、评论、商家页面使用cube-ui的组件CubeTabBar配合cube-slide，
+								商品页面使用cube-ui的ScrollNav组件实现商品分类固定，商品滚动效果。加入购物车用Vue的过渡动画transition+css3的cubic-bezier实现小球做抛物线动作
+								进入购物车。商品详情、购物车商品列表通过cube-ui的create-api用API方式调用组件，展开购物车商品列表，通过create-api调用购物车组件构建新的购物车
+								实现购物车列表层级比购物车高。（http://203.195.243.123:8900/?id=9999）</p>
 						</div>
-					</div>
-					<div class="pro">
-						<div class="time">2017.05</div>
-						<div class="content">
-							<h3> 基于nodejs下的交流社区</h3>
-							<p class="pro_cont">
-								用nodejs技术实现的一个交流社区。实现登陆注册，发表文章，评论。用nodejs+express形式实现后台开发。
-								(github:node_communication_community)
-							</p>
 
-						</div>
-					</div>
-					<div class="pro">
-						<div class="time same">2017.01-2017.02  </div>
-						<div class="content same">
-							<h3>基于thinkPHP下的就业网站 </h3>
-							<p class="pro_cont">
-								该项目是一个用thinkPHP框架实现的招聘网站，可实现求职者投递简历，公司发布职位等。
-								本人负责，本人负责登陆、新闻公告部分。（GitHub:-Employment-website)
-							</p>
-
-						</div>
 					</div>
 				</div>
-				<div class="work_exp">
-					<div class="work_head">
-						<img src="/aboutMe/images/undergo.png">
-						<span class="work_name">&nbsp;&nbsp;成长经历</span>
-					</div>
-					
-					<div class="work">
-						<div class="time">2013.11-2017.06</div>
-						<div class="content">
-							<h3>岭南师范学院（学习） </h3>
-							<p class="work_cont">
-								在校期间，学习了网页设计，算法设计与分析，c语言，c++，PHP，操作系统，计算机原理，数据结构等专业课程。
-							</p>
-
+				<div class="pro">
+					<div class="time">2018.6至今</div>
+					<div class="content">
+						<div class="ex-head">
+							<h3> 个人博客</h3>
+							<h3>独立完成</h3>
 						</div>
-					</div>
-					
-					
-					
-					<div class="work">
-						<div class="time">2016.11-2017.08</div>
-						<div class="content">
-							<h3>广州源酷创意信息有限公司（实习） </h3>
-							<p class="work_cont">
-								web前端相关内容，参与做过就业系统，基于nodejs下的交流社区，腾科IT教育网站，澳源股份官网等项目的开发。
-							</p>
 
+						<div class="pro_cont">
+							<p>技术：响应式网站，原生CSS+jQuery+PHP（个人搭建的MVC框架做后台）+MySQL</p>
+							<p>
+								项目描述：个人博客，可以发布文章、编写知识手册、收藏有用的网址，上传项目案例或网站等。
+
+							</p>
+							<p>技术难点：手册页面+zTree树插件实现树形结构及结合JS固定目录；收藏页面用JS实现固定菜单栏及滚动到指定位置；
+								文章可进行点赞、发表评论等，所有评论将发送到 管理员邮箱，回复评论将发送到被回复人邮箱；文件内的静态文件可以直接访问。
+								本网站实现了对非法路径的拦截。（http://www.huangyanx.top）</p>
 						</div>
+
 					</div>
-					
 				</div>
+				<div class="pro">
+					<div class="time">2019.11<br/>（两周多）</div>
+					<div class="content">
+						<div class="ex-head">
+							<h3> 医羽自助预约网站</h3>
+							<h3>独立完成</h3>
+						</div>
+
+						<div class="pro_cont">
+							<p>技术：移动端与PC端分离，PC端：用Boostrap、animate/jQuery框架等；移动端：使用flexible进行自适应布局；后台用PHPMyadmin框架进行二次开发</p>
+							<p>
+								项目描述：仿医羽网站页面内容及功能及设计的网站。用户可以指定的国家、医院类型、服务类型、根据销量或价格等排序顺序等不同条件进行快速查找所需服务
+								进行预约，在确认预约完成后，可以进行此次服务的评论</p>
+							<p>技术难点：医院及服务的详情页对应的版块内容后台如何保存处理；医院、服务列表页的关键字搜索。（https://www.hkmmbooking.com/）</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="pro">
+					<div class="time">2019.06<br/>（两周多）</div>
+					<div class="content">
+						<div class="ex-head">
+							<h3> yyhpv预约管理系统（重构）</h3>
+							<h3>负责前端</h3>
+						</div>
+
+						<div class="pro_cont">
+							<p>技术：原生CSS+jQuery，后台用thinkPHP5</p>
+							<p>
+								项目描述：yyhpv预约管理系统是一个公司内部使用的进行预约查询统计的管理系统，不同的人不同的操作权限及页面显示。
+								由于新增部分功能以及后来的修改维护等原因，公司决定重构预约管理系统这个项目（重构网站）</p>
+							<p>
+								职责描述：本人负责所有页面的设计、重构、交互特效，和一名php后台人员合作完成。完美实现公司要求的所有新增功能以及旧功能的优化及封装。
+								页面较之前更简洁美观。大部分员工都更满意当前系统，使用起来更方便顺畅。(http://www.yyhpv.com)
+
+							</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="pro">
+					<div class="time">2018.12<br/>（三周）</div>
+					<div class="content">
+						<div class="ex-head">
+							<h3> 花生健康网（移动端）</h3>
+							<h3>独立完成</h3>
+						</div>
+
+						<div class="pro_cont">
+							<p>技术：前端使用miniMobile框架布局以及JS交互特效，后端用WordPress设计的数据库改写PHPmyadmin框架进行二次开发。</p>
+							<p>
+								项目描述：由于花生健康网PC使用WordPress框架已上线使用， 而WordPress框架无法做到移动端PC端用不同的域名，
+								使用了用PC端的WordPress数据库后台用phpmyadmin框架技术进行移动端的二次开发。 完美地实现移动端与PC端同步共用数据(http://m.91peanut.com/)
+							</p>
+							<p>技术难点：phpmyadmin框架使用WordPress设计的数据库进行编写后台</p>
+						</div>
+
+					</div>
+				</div>
+				<!--	<div class="pro">
+						<div class="time">2018.10<br/>（三周）</div>
+						<div class="content">
+							<div class="ex-head">
+								<h3> 香港医学诊断中心雅兰店（小程序）</h3><h3>独立完成</h3>
+							</div>
+
+							<div class="pro_cont">
+								<p>技术：原生小程序进行来发</p>
+								<p>
+									描述：由于公司的要求，香港医学诊断中心雅兰店小程序用个人小程序进行开发，由于公司产品属于医疗产品，
+									用个人小程序无法通过审核，本人通过制作两个版本的页面，一个版本作为审核，一个版本是真正的产品项目，经过多次的修改尝试，
+									通过了审核并发布上线。
+								</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="pro">
+						<div class="time">2017.02</div>
+						<div class="content">
+							<div class="ex-head">
+								<h3> node社区</h3><h3>独立完成</h3>
+							</div>
+
+							<p class="pro_cont">
+								用nodejs技术实现的一个交流社区。实现的功能有：登陆注册，发表文章，
+								评论。用nodejs+express形式实现后台开发，利用npm插件使得项目开发更容易，
+								如通过cheerio爬虫获取cnode社区最新数据。(github:node_communication_community)
+)
+							</p>
+
+						</div>
+					</div>-->
 			</div>
-			
-		</div>
-		<div class="right">
-			<div class="head_img">
-				<img src="/aboutMe/images/head_ph.png">
+			<div class="work_exp">
+				<div class="work_head">
+					<i class="img iconfont icon-drxx20"></i>
+					<span class="work_name">&nbsp;&nbsp;成长经历</span>
+				</div>
+
+				<div class="work">
+					<div class="time">2013.11-<br/>
+						2017.06</div>
+					<div class="content">
+						<div class="ex-head"><h3>岭南师范学院 </h3><h3 >信息与计算科学专业</h3> <h3>本科</h3></div>
+						<p class="work_cont">
+							主修课程：网页设计，算法设计与分析，c语言，c++，操作系统，计算机原理，数据结构等
+						</p>
+
+					</div>
+				</div>
+				<div class="work">
+					<div class="time">2016.7-
+						</br>2017.10</div>
+					<div class="content">
+						<div class="ex-head">	<h3>广州源酷创意信息有限公司 </h3><h3>前端实习生</h3></div>
+						<p class="work_cont">
+							负责公司产品web前端功能设计、开发与实现，维护及优化网站前端页面性能。
+							参与做过就业系统(thinkphp3框架)，腾科IT教育网站，澳源股份官网，交流社区（node）等项目的开发。
+						</p>
+
+					</div>
+				</div>
+				<div class="work">
+					<div class="time">2017.11-</br>2019.11</div>
+					<div class="content">
+						<div class="ex-head">	<h3>深圳贝玖莱健康有限公司 </h3><h3>前端工程师</h3></div>
+						<div class="work_cont">
+							<p>1、为网站新增功能以及美化，维护及优化公司网站</p>
+							<p>2、参与公司产品web前端功能设计、开发与实现</p>
+							<p>3、参与公司内部系统的设计、开发与实现</p>
+							<p>4、引领新人，带领新人快速融入集体和自我成长。</p>
+							<p>参与的项目有：SEO推广网站：贝玖莱IVF网站、花生健康移动端等等；
+								公司内部系统：预约系统、仁建HPV疫苗预约系统等等
+								小程序：香港医学诊断中心店、香港验血邮寄中心等微信小程序等</p>
+
+						</div>
+
+					</div>
+				</div>
+
 			</div>
-				<div class="info_r">
-					<div class="head">
-						<div class="img"><img src="/aboutMe/images/seeker.png"></div>
-						<span>&nbsp;&nbsp;求职意向</span>
-					</div>
-					<div class="cont">
-						<p>web前端工程师</p>
-						<p>js工程师</p>
-					</div>
-				</div>
-				<div class="info_r">
-					<div class="head">
-						<div class="img"><img src="/aboutMe/images/money.jpg"></div>
-						<span>&nbsp;&nbsp;期待薪资</span>
-					</div>
-					<div class="cont">
-						<p>4000~8000</p>
-					</div>
-				</div>
-				
-				<div class="info_r">
-					<div class="head">
-						<div class="img"><img src="/aboutMe/images/contact.png"></div>
-						<span>&nbsp;&nbsp;联系方式</span>
-					</div>
-					<div class="cont">
-						<p>手机</p>
-						<p>18312728781</p>
-						<p>邮箱</p>
-						<p>1579379019@qq.com</p>
-						<p>微信</p>
-						<p>hyx18312728781</p>
-					</div>
-					
-				</div>
-				
-				<div class="info_r">
-					<div class="head">
-						<div class="img"><img src="/aboutMe/images/skill.png"></div>
-						<span>&nbsp;&nbsp;专业技能</span>
-					</div>
-					<div class="cont">
-						<div class="sk">
-							<div class="bor_left">
-								<div class="ball">1</div>
-								<div class="bor"></div>
-							</div>
-							<span>掌握JavaScript，了解es6，熟悉js闭包，模块化开发，组件开发等。</span>
-						</div>
-						<div class="sk">
-							<div class="bor_left">
-								<div class="ball">2</div>
-								<div class="bor"></div></div>
-							<span>熟练使用自适应和响应式布局，适应各种PC端和移动端，熟悉boostrap。</span>
-						</div>
-						<div class="sk">
-							<div class="bor_left">
-								<div class="ball">3</div>
-								<div class="bor"></div></div>
-							<span>掌握HTML5的常用标签和css3的各种样式灵活运用</span>
-						</div>
-						<div class="sk">
-							<div class="bor_left">
-								<div class="ball">4</div>
-								<div class="bor"></div></div>
-							<span>掌握PHP后台语言，对ajax、MySQL、c/c++等了解</span>
-						</div>
-						<div class="sk">
-							<div class="bor_left">
-								<div class="ball">5</div>
-								<div class="bor"></div></div>
-							<span>熟悉Smarty、thinkPHP等后台框架，熟悉MVC框架思想，曾自己编写过小的MVC框架。</span>
-						</div>
-						
-						<div class="sk">
-							<div class="bor_left">
-								<div class="ball">6</div>
-								<div class="bor"></div>
-							</div>
-							<span>熟悉前端流行框架angularjs，jQuery等，熟悉nodejs</span>
-						</div>
-						<div class="sk">
-							<div class="bor_left">
-								<div class="ball">7</div>
-								<div class="bor"></div>
-							</div>
-							<span>熟悉git</span>
-						</div>
-					</div>
-				</div>
-			
 		</div>
-		<footer>
-			<div class="bk"><img src="/aboutMe/images/CSDN.png">&nbsp;<a href="http://blog.csdn.net/hyanx__/article/">http://blog.csdn.net/hyanx__/article/</a></div>
-			<div class="bk"><img src="/aboutMe/images/GitHub.png">&nbsp;<a href="https://github.com/Huangyanx">https://github.com/Huangyanx</a></div>
-		</footer>
-	
+
 	</div>
+	<div class="right">
+		<div class="head_img">
+			<img src="/aboutMe/images/photo.png">
+		</div>
+		<h1 class="r-name">黄艳雄</h1>
+		<div class="intro_self">
+			<div class="info">
+				93.8.17 | 现居于广州天河区小新塘 | 本科
+			</div>
+			<div class="info_r">
+				<div class="head">
+					<div class="img">
+						<i class="iconfont icon-comment-w"></i>
+					</div>
+					<span>&nbsp;&nbsp;自我评价</span>
+				</div>
+				<div class="cont">
+					<p class="r-introduct white-color">
+						有两年多的工作经验， 拥有良好的团队协作精神和较强的时间意识，有自我钻研的精神，工作主动、认真，负责。
+						具有较强的学习和自学新知识的能力，热爱IT行业。
+					</p>
+				</div>
+			</div>
 
 
+		</div>
+		<div class="info_r">
+			<div class="head">
+				<div class="img">
+					<i class="iconfont icon-qiuzhiyixiang"></i>
+				</div>
+				<span>&nbsp;&nbsp;求职意向</span>
+			</div>
+			<div class="cont">
+				<p>web前端/全栈工程师</p>
+			</div>
+		</div>
+		<!--	<div class="info_r">
+                <div class="head">
+                    <div class="img">   <i class="iconfont icon-xinzi"></i></div>
+                    <span>&nbsp;&nbsp;期待薪资</span>
+                </div>
+                <div class="cont">
+                    <p>12000~20000</p>
+                </div>
+            </div>-->
+
+		<div class="info_r">
+			<div class="head">
+				<div class="img"><i class="iconfont icon-cansaitubiaozhuanqu-"></i></div>
+				<span>&nbsp;&nbsp;联系方式</span>
+			</div>
+			<div class="cont">
+				<p>手机</p>
+				<p>******</p>
+				<p>邮箱</p>
+				<p>1579379019@qq.com</p>
+				<p>微信</p>
+				<p>*******</p>
+			</div>
+
+		</div>
+		<div class="info_r">
+			<div class="head">
+				<div class="img"><i class="iconfont icon-jiguan"></i></div>
+				<span>&nbsp;&nbsp;籍贯</span>
+			</div>
+			<div class="cont">
+				<p>广东茂名</p>
+
+			</div>
+
+		</div>
+		<div class="info_r">
+			<div class="head">
+				<div class="img"><i class="iconfont icon-xiangmu"></i></div>
+				<span>&nbsp;&nbsp;专业技能</span>
+			</div>
+			<div class="cont">
+				<div class="sk">
+					<div class="bor_left">
+						<div class="ball">1</div>
+						<div class="bor"></div>
+					</div>
+					<div class="content">熟练运用HTML/CSS/JavaScript，快速进行各类页面的布局及效果
+						<div>熟悉HTML5各种新特性, 能够实现基本绘图，本地存储、缓存</div>
+						<div>熟悉Boostrap等框架，快速布局，了解jQuery mobile等框架</div>
+						<div>了解CSS预处理器，sass/less/stylus</div>
+					</div>
+				</div>
+				<div class="sk">
+					<div class="bor_left">
+						<div class="ball">2</div>
+						<div class="bor"></div></div>
+					<div class="content">了解原生JS（面向对象、原型链、闭包）、熟悉jQuery等JS框架、es6（箭头函数、解构赋值、class、mould等）</div>
+				</div>
+				<div class="sk">
+					<div class="bor_left">
+						<div class="ball">3</div>
+						<div class="bor"></div></div>
+					<span>了解自动化构建工具webpack/gulp</span>
+				</div>
+				<div class="sk">
+					<div class="bor_left">
+						<div class="ball">4</div>
+						<div class="bor"></div></div>
+					<span>了解版本管理工具git</span>
+				</div>
+				<div class="sk">
+					<div class="bor_left">
+						<div class="ball">5</div>
+						<div class="bor"></div></div>
+					<span>熟悉Vue框架</span>
+				</div>
+				<div class="sk">
+					<div class="bor_left">
+						<div class="ball">6</div>
+						<div class="bor"></div>
+					</div>
+					<span>了解微信小程序开发</span>
+				</div>
+				<div class="sk">
+					<div class="bor_left">
+						<div class="ball">7</div>
+						<div class="bor"></div>
+					</div>
+					<span>了解常见的数据结构与算法、设计模式</span>
+				</div>
+				<div class="sk">
+					<div class="bor_left">
+						<div class="ball">8</div>
+
+					</div>
+					<span>熟悉PHP，了解thinkPHP框架，有搭建个小型的MVC框架</span>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<footer>
+		<div class="bk" title="GitHub"><img src="/aboutMe/images/GitHub.png">&nbsp;<a href="https://github.com/Huangyanx" target="_blank">https://github.com/Huangyanx</a></div>
+		<div class="bk" title="个人博客"><img src="/aboutMe/images/blog.png">&nbsp;<a href="http://www.huangyanx.top" target="_blank">http://www.huangyanx.top</a></div>
+	</footer>
+
+</div>
 </body>
 </html>
