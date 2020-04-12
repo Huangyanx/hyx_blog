@@ -26,7 +26,7 @@ exports.login_do=(req,res,next)=>{
            req.session.user_info=username;
             res.redirect('/back/project/hcj?tab=hcj');
         }else {
-            res.render('/user/login');
+            res.render('back/login');
         }
 
     });
