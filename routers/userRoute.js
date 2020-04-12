@@ -10,4 +10,5 @@ router.get('/login_do',indexServer.login_do);
 router.get('/register_do',indexServer.register_do);
 router.get('/has_user',indexServer.has_user);
 
+
 module.exports=router;

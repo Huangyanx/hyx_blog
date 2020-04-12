@@ -11,7 +11,9 @@ var indexServer=require(rootPath+"/servers/back/indexServer");
 router.get('/',function(req,res,next){
 	res.render("back/index");
 });
-
+router.get('/aboutMe/resume',function (req,res) {
+    res.render('main/aboutMe/resume');
+});
 /*project*/
 router.get('/project',function (req,res,next) {
 	res.render('back/project/index');

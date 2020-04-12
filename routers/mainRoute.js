@@ -43,10 +43,6 @@ router.get('/node',function (req,res) {
 	res.render('main/project/node');
 });
 
-router.get('/aboutMe/resume',function (req,res) {
-	res.render('main/aboutMe/resume');
-});
-
 
 router.get('/',projectServer.main_list);
 module.exports=router;
